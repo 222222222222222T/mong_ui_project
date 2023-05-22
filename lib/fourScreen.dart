@@ -34,14 +34,7 @@ class _calendarState extends State<calendar> {
   List alist = List<int>.filled(31,0);
   DateTime? _selectedDay;
   DateTime _focusedDay = DateTime.now();
-  Map<DateTime, List<sb>> events={
-    DateTime.utc(2023,05,01):[sb()],
-    DateTime.utc(2023,05,02):[sb()],
-  };
 
-  List<sb> _getEventsForDay(DateTime day){
-    return events[day] ??[];
-  }
 
 
   @override
@@ -52,12 +45,15 @@ class _calendarState extends State<calendar> {
           elevation: 0.0,
           title:Container(
               margin: EdgeInsets.fromLTRB(13, 14, 0, 0),
-              child: Image(
-                width: 60,
-                height: 60,
-                image: AssetImage('imageFile/dog_foot.PNG'),
-              )
+              child:TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>sevenScreen()));},
+                  child: Image(
+                    width: 60,
+                    height: 60,
+                    image: AssetImage('imageFile/dog_foot.PNG'),
+                  )
 
+              ),
           )
       ),
       body:content(),
@@ -95,7 +91,6 @@ class _calendarState extends State<calendar> {
                 _focusedDay=focusedDay;
               });
             },
-            eventLoader: _getEventsForDay,
             calendarBuilders: CalendarBuilders(
               defaultBuilder: (context, dateTime, _) {
                 return CalendarCellBuilder(context, dateTime, _, 0);
@@ -158,10 +153,7 @@ class _calendarState extends State<calendar> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Image.asset("imageFile/calendar.PNG"),
-              TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>sevenScreen()));},
-                child:Image.asset("imageFile/monglogo.PNG"),
-              ),
+              Image.asset("imageFile/monglogo.PNG"),
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>sixScreen()));
               }, child:Image.asset("imageFile/tong.PNG"),

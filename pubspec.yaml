@@ -61,8 +61,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - imageFile/발바닥.png
-    - imageFile/뼈다귀.png
     - imageFile/d.png
     - imageFile/monglogo.PNG
     - imageFile/tong.PNG
