@@ -30,57 +30,58 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
+           Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  // SizedBox(height: 100),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE7E3D1),
+                      borderRadius: BorderRadius.circular(46),
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE7E3D1),
+                      borderRadius: BorderRadius.circular(46),
+                    ),
+                  ),
+                ],
+              ),
+              // SizedBox(height: 0)
 
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(height: 100),
-              Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE7E3D1),
-                  borderRadius: BorderRadius.circular(46),
-                ),
-              ),
-              SizedBox(width: 30),
-              Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE7E3D1),
-                  borderRadius: BorderRadius.circular(46),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-
-              SizedBox(width: 0),
-              Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE7E3D1),
-                  borderRadius: BorderRadius.circular(46),
-                ),
+                  SizedBox(width: 0),
+                  Container(
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE7E3D1),
+                      borderRadius: BorderRadius.circular(46),
+                    ),
+                  ),
+                  SizedBox(width: 180),
+                  Container(
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFE7E3D1),
+                      borderRadius: BorderRadius.circular(46),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(width: 180),
-              Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE7E3D1),
-                  borderRadius: BorderRadius.circular(46),
-                ),
-              ),
-            ],
-          ),
           SizedBox(height: 20),
           Center(
             child: Container(
