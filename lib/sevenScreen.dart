@@ -93,7 +93,7 @@ class _lastscreenState extends State<lastscreen> {
             ),
             Container(
                 width: 300,
-                height: 400,
+                height: 370,
                 decoration: BoxDecoration(
                     color: Color(0xffE7E3D1),
                     border: Border.all(color:Color(0xffE7E3D1),width: 2),
@@ -189,6 +189,7 @@ class _lastscreenState extends State<lastscreen> {
                 )
             ),
             Container(
+              margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
               width: double.infinity,
               height: 80,
               color: Color(0xffFCF5B6),
