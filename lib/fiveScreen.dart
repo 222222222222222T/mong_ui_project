@@ -30,59 +30,21 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-           Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  // SizedBox(height: 100),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE7E3D1),
-                      borderRadius: BorderRadius.circular(46),
-                    ),
-                  ),
-                  SizedBox(width: 30),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE7E3D1),
-                      borderRadius: BorderRadius.circular(46),
-                    ),
-                  ),
-                ],
-              ),
-              // SizedBox(height: 0)
-
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-
-                  SizedBox(width: 0),
-                  Container(
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE7E3D1),
-                      borderRadius: BorderRadius.circular(46),
-                    ),
-                  ),
-                  SizedBox(width: 180),
-                  Container(
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFE7E3D1),
-                      borderRadius: BorderRadius.circular(46),
-                    ),
-                  ),
-                ],
-              ),
           SizedBox(height: 20),
+          Container(
+            width: 100, // 수정된 가로 크기
+            height: 100, // 수정된 세로 크기
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50), // 둥근 모서리 반지름 값
+              child: Image.asset(
+                'imageFile/foot.png',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+
+          SizedBox(height: 25),
           Center(
             child: Container(
               margin: EdgeInsets.only(right: 0),

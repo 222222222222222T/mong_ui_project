@@ -26,9 +26,6 @@ class _lastscreenState extends State<lastscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title:Text("lastScreen")
-      ),
       body: lscontent(),
     );
   }
@@ -38,8 +35,16 @@ class _lastscreenState extends State<lastscreen> {
         child: Column(
           children: [
             Container(
+              margin: EdgeInsets.fromLTRB(0, 50, 300, 0),
+              child: Image.asset(
+                "imageFile/back.png",
+                width: 55,
+                height: 60,
+              ),
+            ),
+            Container(
                 margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                width: 300,
+                width: 350,
                 height: 250,
                 decoration: BoxDecoration(
                     color: Color(0xffE7E3D1),
@@ -91,8 +96,9 @@ class _lastscreenState extends State<lastscreen> {
                 )
 
             ),
+
             Container(
-                width: 300,
+                width: 350,
                 height: 370,
                 decoration: BoxDecoration(
                     color: Color(0xffE7E3D1),
@@ -102,20 +108,16 @@ class _lastscreenState extends State<lastscreen> {
                 child:Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      margin:EdgeInsets.all(10),
-                      child: Text("setting",
-                        style: TextStyle(fontSize: 40),),
-                    ),
+
                     Container(
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text("One Setting",
-                                style: TextStyle(fontSize: 30),)
+                              child: Text("데이터 관리",
+                                style: TextStyle(fontSize: 25),)
                           )
                         ],
                       ),
@@ -124,11 +126,11 @@ class _lastscreenState extends State<lastscreen> {
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text("Two Setting",
-                                style: TextStyle(fontSize: 30),)
+                              child: Text("알람 on/off",
+                                style: TextStyle(fontSize: 25),)
                           )
                         ],
                       ),
@@ -137,11 +139,11 @@ class _lastscreenState extends State<lastscreen> {
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text("Three Setting",
-                                style: TextStyle(fontSize: 30),)
+                              child: Text("글자 스타일",
+                                style: TextStyle(fontSize: 20),)
                           )
                         ],
                       ),
@@ -150,11 +152,11 @@ class _lastscreenState extends State<lastscreen> {
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text("Four Setting",
-                                style: TextStyle(fontSize: 30),)
+                              child: Text("앱 평가하기",
+                                style: TextStyle(fontSize: 25),)
                           )
                         ],
                       ),
@@ -163,11 +165,11 @@ class _lastscreenState extends State<lastscreen> {
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
-                              child: Text("Five Setting",
-                                style: TextStyle(fontSize: 30),)
+                              child: Text("의견 남기기",
+                                style: TextStyle(fontSize: 25),)
                           )
                         ],
                       ),
@@ -176,11 +178,11 @@ class _lastscreenState extends State<lastscreen> {
                       margin:EdgeInsets.fromLTRB(20, 5, 0, 5),
                       child: Row(
                         children: [
-                          Image.asset("imageFile/circle.PNG", width: 20,height: 20,),
+                          Image.asset("imageFile/rcircle.png", width: 20,height: 20,),
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text("Six Setting",
-                                style: TextStyle(fontSize: 30),)
+                                style: TextStyle(fontSize: 25),)
                           )
                         ],
                       ),
@@ -188,7 +190,7 @@ class _lastscreenState extends State<lastscreen> {
                   ],
                 )
             ),
-            Container(
+            /*Container(
               margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
               width: double.infinity,
               height: 80,
@@ -209,7 +211,9 @@ class _lastscreenState extends State<lastscreen> {
                   ),
                 ],
               ),
-            )
+            )*/
+
+
           ],
         )
     );
