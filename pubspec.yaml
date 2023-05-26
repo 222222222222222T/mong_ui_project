@@ -76,6 +76,9 @@ flutter:
     - imageFile/two_mon.png
     - imageFile/dog_foot.PNG
     - imageFile/init.PNG
+    - imageFile/foot.png
+    - imageFile/back.png
+    - imageFile/rcircle.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

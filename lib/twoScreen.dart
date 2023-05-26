@@ -23,7 +23,7 @@ class twoScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(80),
                   child: Image.asset(
-                    'imageFile/two_mon.png', // 이미지 경로를 적절히 수정해주세요.
+                    'imageFile/two_mon.png',
                     fit: BoxFit.cover,
                   ),
                 ),

@@ -210,11 +210,11 @@ class sixScreen extends StatelessWidget {
                 children: [
                   TextButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>fourScreen()));},
-                    child: Image.asset('imageFile/calendar.PNG', width: 60, height: 60),),
+                    child: Image.asset('imageFile/calendar.PNG', width: 65, height: 65),),
                   TextButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>sevenScreen()));},
-                    child: Image.asset('imageFile/logo.png', width: 60, height: 60),),
-                  Image.asset('imageFile/tong.PNG', width: 60, height: 60)
+                    child: Image.asset('imageFile/monglogo.PNG', width: 75, height: 75),),
+                  Image.asset('imageFile/tong.PNG', width: 75, height: 75)
                 ]
             )
         ),
