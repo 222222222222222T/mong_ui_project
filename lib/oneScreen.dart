@@ -1,9 +1,17 @@
 //맨처음화면
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 
-
+void createData(){
+  // ignore: deprecated_member_use
+  final userReference = FirebaseDatabase().reference().child("User");
+  userReference.child("userKey1").set({
+    "userName":"hi",
+    "나이":25,
+  });
+}
 class oneScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,6 +33,7 @@ class oneScreen extends StatelessWidget {
                 child: Center(
                   child: TextButton(
                     onPressed: (){
+                      // createData();
                       Navigator.pushNamed(context, "/twoScreen");
                     },
                     child: Text(

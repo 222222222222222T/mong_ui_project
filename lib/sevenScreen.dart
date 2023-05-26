@@ -17,7 +17,6 @@ class sevenScreen extends StatelessWidget {
 
 class lastscreen extends StatefulWidget {
   const lastscreen({Key? key}) : super(key: key);
-
   @override
   State<lastscreen> createState() => _lastscreenState();
 }
@@ -214,6 +213,4 @@ class _lastscreenState extends State<lastscreen> {
         )
     );
   }
-
-
 }

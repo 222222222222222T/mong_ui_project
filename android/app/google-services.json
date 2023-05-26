@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "402099482589",
+    "firebase_url": "https://mongui-3bcbe-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mongui-3bcbe",
+    "storage_bucket": "mongui-3bcbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402099482589:android:cbbf9c0bdef612f0b29034",
+        "android_client_info": {
+          "package_name": "com.example.mong_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402099482589-vd1nfr7n0gs70pgvs7e56qu2dd23pnuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxmKghgmwQrB_rUIBPQqC-y-HOuNNmuUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402099482589-vd1nfr7n0gs70pgvs7e56qu2dd23pnuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402099482589:android:a3e04a1aecd7f47cb29034",
+        "android_client_info": {
+          "package_name": "com.uiproject.mong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402099482589-vd1nfr7n0gs70pgvs7e56qu2dd23pnuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxmKghgmwQrB_rUIBPQqC-y-HOuNNmuUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402099482589-vd1nfr7n0gs70pgvs7e56qu2dd23pnuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
