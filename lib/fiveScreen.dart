@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'fourScreen.dart';
 
@@ -13,6 +16,16 @@ class fiveScreen extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  Future<bool> existing() async {
+    final ref = FirebaseDatabase.instance.ref();
+    final snapshot = await ref.child('users/May').get();
+    if (snapshot.exists) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,6 +156,21 @@ class MyHomePage extends StatelessWidget {
                 color: Color(0xFFE7E3D1),
                 borderRadius: BorderRadius.circular(46),
               ),
+              child: Row(
+                children: [
+                    ElevatedButton(onPressed: (){
+                      Future<int> count = get("May", "happy");
+                      count.then((value) => {
+                      if(value==-1){
+                        createData("May")
+                      }else{
+                        print("업데이트전"),
+                        statUpdate("May", "happy", value+1)
+                      }
+                      });
+                    }, child: Text("happy"))
+                ],
+              ),
             ),
           ),
           SizedBox(height: 20),
@@ -168,7 +196,6 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-
 
           SizedBox(height: 90),
           Center(
@@ -197,5 +224,29 @@ class MyHomePage extends StatelessWidget {
 
       ),
     );
+  }
+}
+void statUpdate(String Month,String stat,int count){
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month");
+  ref.update({
+    "$stat":count,
+  });
+}
+void createData(String Month){
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month");
+  ref.set({
+    "happy":0,
+    "sad":0,
+    "funny":0
+    }
+  );
+}
+Future<int> get(String Month, String stat) async {
+  final ref = FirebaseDatabase.instance.ref();
+  final snapshot = await ref.child('users/$Month/$stat').get();
+  if (snapshot.exists) {
+    return snapshot.value as int;
+  } else {
+    return -1;
   }
 }
