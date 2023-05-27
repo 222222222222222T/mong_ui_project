@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'fourScreen.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -9,14 +8,14 @@ class threeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: buildMaterialColor(Color(0xffFCF5B6)),
+        // primarySwatch: buildMaterialColor(Color(0xffFCF5B6)),
         scaffoldBackgroundColor: Color(0xffFAF9E9),
       ),
       home: PhotoInfoScreen(),
     );
   }
 }
-MaterialColor buildMaterialColor(Color color) {
+MaterialColor buildMaterialCytolor(Color color) {
   List strengths = <double>[.05];
   Map<int, Color> swatch = {};
   final int r = color.red, g = color.green, b = color.blue;
