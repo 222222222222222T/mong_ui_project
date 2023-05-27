@@ -32,15 +32,21 @@ class _lastscreenState extends State<lastscreen> {
   Widget lscontent(){
     return Center(
         child: Column(
+
+
           children: [
             Container(
               margin: EdgeInsets.fromLTRB(0, 50, 300, 0),
-              child: Image.asset(
-                "imageFile/back.png",
-                width: 55,
-                height: 60,
+              child:TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>fourScreen()));},
+                child: Image.asset(
+                  "imageFile/back.png",
+                  width: 55,
+                  height: 60,
+                ),
               ),
             ),
+
             Container(
                 margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
                 width: 350,

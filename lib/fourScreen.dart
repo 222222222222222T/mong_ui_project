@@ -44,18 +44,19 @@ class _calendarState extends State<calendar> {
           backgroundColor: Color(0xffFAF9E9),
           elevation: 0.0,
           title:Container(
-              margin: EdgeInsets.fromLTRB(13, 14, 0, 0),
-              child:TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>sevenScreen()));},
-                  child: Image(
-                    width: 60,
-                    height: 60,
-                    image: AssetImage('imageFile/dog_foot.PNG'),
-                  )
+            margin: EdgeInsets.fromLTRB(0, 30, 30, 0),
+            child:TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>sevenScreen()));},
+                child: Image(
+                  width: 80,
+                  height: 70,
+                  image: AssetImage('imageFile/setting.png'),
+                )
 
-              ),
+            ),
           )
       ),
+
       body:content(),
     );
   }
@@ -147,17 +148,32 @@ class _calendarState extends State<calendar> {
         Container(
           margin: EdgeInsets.fromLTRB(0, 40, 0,0),
           width: double.infinity,
-          height: 80,
+          height: 83,
           color: Color(0xffFCF5B6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.asset("imageFile/calendar.PNG"),
-              Image.asset("imageFile/monglogo.PNG"),
+              SizedBox(width:0,),
+              Image.asset(
+                "imageFile/calendar.PNG",
+                width: 65,
+                height: 65,
+              ),
+              Image.asset(
+                  "imageFile/monglogo.PNG",
+              width: 75,
+              height: 75,
+              ),
               TextButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>sixScreen()));
-              }, child:Image.asset("imageFile/tong.PNG"),
+              }, child:Image.asset(
+                  "imageFile/tong.PNG",
+                width: 75,
+                height: 75,
               ),
+
+              ),
+              SizedBox(width:0,),
             ],
           ),
         )
