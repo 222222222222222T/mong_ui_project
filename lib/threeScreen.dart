@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'fourScreen.dart';
+import 'package:image_picker/image_picker.dart';
 
 class threeScreen extends StatelessWidget {
 
@@ -61,7 +62,9 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
               ),
               child: IconButton(
                 icon: Icon(Icons.add_a_photo),
-                onPressed: () {},
+                onPressed: () {
+                  _showBottomSheet();
+                },
               ),
             ),
             SizedBox(height: 20),
@@ -96,6 +99,47 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  _showBottomSheet() {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25),
+        ),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('사진찍기'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Divider(
+              thickness: 3,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('라이브러리에서 불러오기'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        );
+      },
     );
   }
 }
