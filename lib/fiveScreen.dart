@@ -15,7 +15,23 @@ class fiveScreen extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+//
+// class _MyHomePageState extends State<MyHomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }
+
+
+class _MyHomePageState extends State<MyHomePage>{
+  bool _ischecked =true;
   Future<bool> existing() async {
     final ref = FirebaseDatabase.instance.ref();
     final snapshot = await ref.child('users/May').get();
@@ -158,17 +174,43 @@ class MyHomePage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                    ElevatedButton(onPressed: (){
-                      Future<int> count = get("May", "happy");
-                      count.then((value) => {
-                      if(value==-1){
-                        createData("May")
-                      }else{
-                        print("업데이트전"),
-                        statUpdate("May", "happy", value+1)
-                      }
-                      });
-                    }, child: Text("happy"))
+                    Checkbox(
+                      value: _ischecked,
+                      onChanged: (value){
+                        setState(() {
+                          _ischecked=value!;
+                        });
+                        if(value==true){
+                          Future<int> count = get("May", "happy");
+                          count.then((value) => {
+                          if(value==-1){
+                            createData("May")
+                          }else{
+                            print("업데이트전"),
+                            statUpdate("May", "happy", value+1)
+                          }
+                          });
+                        }else{
+                          Future<int> count = get("May", "happy");
+                          count.then((value) => {
+                          if(value==-1){
+                            createData("May")
+                          }else{
+                            print("업데이트전"),
+                            statUpdate("May", "happy", value-1)
+                          }
+                          });
+                        }
+                      // Future<int> count = get("May", "happy");
+                      // count.then((value) => {
+                      // if(value==-1){
+                      //   createData("May")
+                      // }else{
+                      //   print("업데이트전"),
+                      //   statUpdate("May", "happy", value+1)
+                      // }
+                      // });
+                    })
                 ],
               ),
             ),
