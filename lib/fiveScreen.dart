@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'fourScreen.dart';
@@ -21,17 +19,21 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
 
+class _MyHomePageState extends State<MyHomePage> {
+  bool _isChecked = false;
+  bool _isChecked2 = false;
+  bool _isChecked3 = false;
+  bool _isChecked4 = false;
+  bool _isChecked5 = false;
+  bool _isChecked6 = false;
+  bool _isChecked7 = false;
+  bool _isChecked8 = false;
+  bool _isChecked9 = false;
+  bool _isChecked10 = false;
+  bool _isChecked11 = false;
+  bool _isChecked12 = false;
 
-class _MyHomePageState extends State<MyHomePage>{
-  bool _ischecked =true;
   Future<bool> existing() async {
     final ref = FirebaseDatabase.instance.ref();
     final snapshot = await ref.child('users/May').get();
@@ -71,8 +73,6 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
             ),
           ),
-
-
           SizedBox(height: 25),
           Center(
             child: Container(
@@ -84,10 +84,17 @@ class _MyHomePageState extends State<MyHomePage>{
                 borderRadius: BorderRadius.circular(46),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(), // 상단 공간 차지를 위한 빈 컨테이너
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: '텍스트를 입력하세요',
+                      contentPadding: EdgeInsets.all(16),
+                    ),
+                  ),
+                  SizedBox(height: 20),
                   Text(
-                    'today monsil',
+                    'today monsil',//상단위로 위치하게 해야함
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 24),
                   ),
@@ -95,22 +102,12 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
             ),
           ),
+
           SizedBox(height: 40),
           Container(
             margin: EdgeInsets.only(left: 60),
             child: Text(
               'photo',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(height: 0),
-          Container(
-            margin: EdgeInsets.only(left: 60),
-            child: Text(
-              '--------------------------------',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -140,28 +137,28 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
             ),
           ),
-          SizedBox(height: 0),
-          Container(
-            margin: EdgeInsets.only(left: 60),
-            child: Text(
-              '--------------------------------',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+      SizedBox(height: 0),
+      Container(
+        margin: EdgeInsets.only(left: 60),
+        child: Text(
+          '--------------------------------',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
-          SizedBox(height: 0),
-          Container(
-            margin: EdgeInsets.only(left: 60),
-            child: Text(
-              'I do ~ ',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+        ),
+      ),
+      SizedBox(height: 0),
+      Container(
+        margin: EdgeInsets.only(left: 60),
+        child: Text(
+          'I do ~ ',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
+        ),
+      ),
           SizedBox(height: 20),
           Center(
             child: Container(
@@ -172,6 +169,129 @@ class _MyHomePageState extends State<MyHomePage>{
                 color: Color(0xFFE7E3D1),
                 borderRadius: BorderRadius.circular(46),
               ),
+              child: Center(
+                child: Container(
+                  margin: EdgeInsets.only(right: 0),
+                  width: 350,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE7E3D1),
+                    borderRadius: BorderRadius.circular(46),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            value: _isChecked7,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked7 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '산책갔어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          SizedBox(width: 20),
+                          Checkbox(
+                            value: _isChecked8,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked2 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '쇼핑했어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            value: _isChecked9,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked9 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '미용했어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          SizedBox(width: 20),
+                          Checkbox(
+                            value: _isChecked10,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked10 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '친구를 만났어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Checkbox(
+                            value: _isChecked11,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked11 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '놀러갔어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          SizedBox(width: 20),
+                          Checkbox(
+                            value: _isChecked12,
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked12 = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            '깨끗해졌어요',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+            ),
+          ),
+
+
+
+
+
+
+
+
+
+
+
+      /* 파이어베이스 수정부분
               child: Row(
                 children: [
                     Checkbox(
@@ -213,8 +333,8 @@ class _MyHomePageState extends State<MyHomePage>{
                     })
                 ],
               ),
-            ),
-          ),
+              */
+
           SizedBox(height: 20),
           Container(
             margin: EdgeInsets.only(left: 60),
@@ -236,8 +356,106 @@ class _MyHomePageState extends State<MyHomePage>{
                 color: Color(0xFFE7E3D1),
                 borderRadius: BorderRadius.circular(46),
               ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Checkbox(
+                        value: _isChecked,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '행복했어요',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(width: 20),
+                      Checkbox(
+                        value: _isChecked2,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked2 = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '즐거웠어요',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Checkbox(
+                        value: _isChecked3,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked3 = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '상쾌했어요',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(width: 20),
+                      Checkbox(
+                        value: _isChecked4,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked4 = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '짜증났어요',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Checkbox(
+                        value: _isChecked5,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked5 = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '힘들어요(지금내가..)',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(width: 20),
+                      Checkbox(
+                        value: _isChecked6,
+                        onChanged: (value) {
+                          setState(() {
+                            _isChecked6 = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        '우아아',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
+
 
           SizedBox(height: 90),
           Center(
