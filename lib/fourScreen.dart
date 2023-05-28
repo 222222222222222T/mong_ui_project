@@ -34,9 +34,6 @@ class _calendarState extends State<calendar> {
   List alist = List<int>.filled(31,0);
   DateTime? _selectedDay;
   DateTime _focusedDay = DateTime.now();
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,17 +75,14 @@ class _calendarState extends State<calendar> {
               formatButtonVisible: false,
             ),
             daysOfWeekHeight: 40,
-            // daysOfWeekStyle: font,//한국어로 바꾸니까 글자 안맞아서 일~토 높이 20으로 증가
-            // calendarStyle: CalendarStyle(
-            //     cellMargin: const EdgeInsets.all(7.0),
-            //     cellPadding: const EdgeInsets.only(bottom:5.0)
-            // ),
             selectedDayPredicate: (day){
               return isSameDay(_selectedDay,day);
             },
             onDaySelected: (selectedDay,focusedDay){
               setState(() {
                 _selectedDay=selectedDay;
+                // print("selectedDay");
+                // print(_selectedDay?.day.runtimeType);
                 _focusedDay=focusedDay;
               });
             },
@@ -96,7 +90,7 @@ class _calendarState extends State<calendar> {
               defaultBuilder: (context, dateTime, _) {
                 return CalendarCellBuilder(context, dateTime, _, 0);
               },
-              todayBuilder: (context, dateTime, _) {
+              todayBuilder:  (context, dateTime, _) {
                 return CalendarCellBuilder(context, dateTime, _, 1);
               },
               selectedBuilder: (context, dateTime, _) {
@@ -104,14 +98,12 @@ class _calendarState extends State<calendar> {
               },
             ),
           ),
-          // child:CalendarStyle(
-          //
-          // )
         ),
         Container(
           child:TextButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>fiveScreen()));
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context)=>fiveScreen(_selectedDay?.day.toString() as Object)));
             },
             child: Image(
               width: 400,
@@ -119,32 +111,6 @@ class _calendarState extends State<calendar> {
             ),
         )
         ),
-
-
-        // TextButton(onPressed: (){
-        //   Navigator.push(context, MaterialPageRoute(builder: (context)=>fiveScreen()));
-        // },
-        //   child:Container(
-        //       width: 343,
-        //       height: 155,
-        //       decoration: BoxDecoration(
-        //           color: Color(0xffE7E3D1),
-        //           border: Border.all(width: 2,color: Color(0xffE7E3D1)),
-        //           borderRadius: BorderRadius.circular(20)
-        //       ),
-        //       child:Column(
-        //         children: [
-        //           Container(
-        //             child:ClipRRect(
-        //               child:Image.asset("imageFile/뼈다구.png",width: 60,height: 60,),
-        //               borderRadius: BorderRadius.circular(50),
-        //             ),
-        //             margin: EdgeInsets.fromLTRB(0, 0, 80, 0),
-        //           )
-        //         ],
-        //       )
-        //   ),
-        // ),
         Container(
           margin: EdgeInsets.fromLTRB(0, 40, 0,0),
           width: double.infinity,
@@ -176,50 +142,106 @@ class _calendarState extends State<calendar> {
               SizedBox(width:0,),
             ],
           ),
-        )
+        ) // 밑에 내비게이션 바
       ],
     );
   }
 }
 
+
+
+
 Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type){
   String date =dateTime.day.toString();
   String month = dateTime.month.toString();
-  return Container(
-      width: 373,
-      height: 390,
-      padding: EdgeInsets.all(0),
-      child:Column(
-          children:[
-            Text(
-              date,
-              style: TextStyle(fontSize: 16,color: Color(0xffDBD09E)),
-            ),
-            // Image.asset("imageFile/d.png")
-            (date=='2' && month=='5')?
-            Container(
-                child: Image.asset("imageFile/d.png",width: 30,height: 30,),
+  if(type==0){
+    return Container(
+        width: 373,
+        height: 390,
+        padding: EdgeInsets.all(0),
+        child:Column(
+            children:[
+              Text(
+                date,
+                style: TextStyle(fontSize: 16,color: Color(0xffDBD09E)),
+              ),
+              // Image.asset("imageFile/d.png")
+              (date=='2' && month=='5')?
+              Container(
+                  child: Image.asset("imageFile/d.png",width: 30,height: 30,),
+                  // padding: EdgeInsets.only(top: 1, bottom: 1),
+                  width: MediaQuery.of(context).size.width,
+                  height:37,
+                  decoration: BoxDecoration(
+                      shape:BoxShape.circle,
+                      color: Color(0xffE7E3D1)
+                  )
+              ):
+              Container(
                 // padding: EdgeInsets.only(top: 1, bottom: 1),
                 width: MediaQuery.of(context).size.width,
-                height:37,
+                height:38,
                 decoration: BoxDecoration(
-                    shape:BoxShape.circle,
-                    color: Color(0xffE7E3D1)
-                )
-            ):
-            Container(
-              // padding: EdgeInsets.only(top: 1, bottom: 1),
-              width: MediaQuery.of(context).size.width,
-              height:38,
-              decoration: BoxDecoration(
-                shape:BoxShape.circle,
-                color: Color(0xffE7E3D1),
+                  shape:BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+              )
+            ]
+        )
+    );
+  }
+  else if(type==2){
+    return Container(
+        width: 373,
+        height: 390,
+        padding: EdgeInsets.all(0),
+        child:Column(
+            children:[
+              Text(
+                date,
+                style: TextStyle(fontSize: 16,color: Colors.blueAccent),
               ),
-            )
-          ]
-      )
-  );
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height:38,
+                decoration: BoxDecoration(
+                  shape:BoxShape.circle,
+                  color: Colors.blueAccent,
+                ),
+              )
+            ]
+        )
+    );
+  }
+  else{
+    return Container(
+        width: 373,
+        height: 390,
+        padding: EdgeInsets.all(0),
+        child:Column(
+            children:[
+              Text(
+                date,
+                style: TextStyle(fontSize: 16,color: Colors.black),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height:38,
+                decoration: BoxDecoration(
+                  shape:BoxShape.circle,
+                  color: Colors.black,
+                ),
+              )
+            ]
+        )
+    );
+  }
 }
+class Arguments {
+  final String dating;
+  Arguments(this.dating);
+}
+
 class sb{
   SizedBox sizebox=SizedBox(
     width: 40,
