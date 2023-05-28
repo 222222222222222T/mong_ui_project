@@ -12,10 +12,10 @@ class oneScreen extends StatelessWidget {
         body: Stack(
           children: [
             Positioned(
-              left: 110,
+              left: 50,
               top: 650,
               child: Container(
-                width: 180,
+                width: 300,
                 height: 80,
                 decoration: BoxDecoration(
                   color: Color(0xFFFCF5B6),
@@ -27,9 +27,10 @@ class oneScreen extends StatelessWidget {
                       Navigator.pushNamed(context, "/twoScreen");
                     },
                     child: Text(
-                      'start',
+                      '오늘몽 시작하기',
                       style: TextStyle(
-                        fontSize: 30,
+                        fontFamily: '나눔손글씨',
+                        fontSize: 35,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),

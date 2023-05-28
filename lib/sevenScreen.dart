@@ -161,7 +161,7 @@ class _lastscreenState extends State<lastscreen> {
                           Container(
                               margin:EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Text("앱 평가하기",
-                                style: TextStyle(fontSize: 25),)
+                                style: TextStyle(fontFamily: 'MaruBuri', fontSize: 25),)
                           )
                         ],
                       ),

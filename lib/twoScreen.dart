@@ -10,8 +10,12 @@ class twoScreen extends StatelessWidget {
         body: Stack(
           children: [
             Positioned(
-              left: 70, // 왼쪽 여백
-              top: 370, // 상단 여백
+              left: 60, // 왼쪽 여백
+              top: 360, // 상단 여백
+          child: TextButton(
+            onPressed: (){
+              Navigator.pushNamed(context, '/fourScreen');
+            },
 
               child:Container(
                 width: 110, // 가로 크기
@@ -26,6 +30,7 @@ class twoScreen extends StatelessWidget {
                     'imageFile/two_mon.png',
                     fit: BoxFit.cover,
                   ),
+                ),
                 ),
               ),
             ),
@@ -79,13 +84,14 @@ class twoScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              left: 140, // 왼쪽 여백
+              left: 100, // 왼쪽 여백
               top: 140, // 상단 여백
               child: Text(
-                'Select a dog',
+                '오늘의 몽을 선택하세요',
                 style: TextStyle(
+                  fontFamily: '나눔손글씨',
                   color: Colors.black, // 글자 색상
-                  fontSize: 24, // 글자 크기
+                  fontSize: 30, // 글자 크기
                   fontWeight: FontWeight.bold, // 글자 두께
                 ),
               ),
@@ -94,14 +100,15 @@ class twoScreen extends StatelessWidget {
               left: 95, // 왼쪽 여백
               top: 490, // 상단 여백
               child: Text(
-                'monsil',
+                '몽실이',
                 style: TextStyle(
+                  fontFamily: '나눔손글씨',
                   color: Colors.black, // 글자 색상
-                  fontSize: 20, // 글자 크기
+                  fontSize: 30, // 글자 크기
                   fontWeight: FontWeight.bold, // 글자 두께
                 ),
               ),
-            ),
+              ),
           ],
         ),
       ),
