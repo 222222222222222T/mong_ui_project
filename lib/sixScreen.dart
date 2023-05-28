@@ -108,7 +108,7 @@ class sixScreen extends StatelessWidget {
                         children: [
                           Text('2023.5.10'),
                           Container(
-
+                            
                             padding: EdgeInsets.fromLTRB(30, 7, 0, 0),
                             decoration: BoxDecoration(
                               color: Color(0xffFCF5B6),

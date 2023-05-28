@@ -69,7 +69,7 @@ class _calendarState extends State<calendar> {
             locale: 'ko-KR',
             firstDay: DateTime.utc(2022,05,01),
             lastDay: DateTime.utc(2023,05,31),
-            focusedDay: DateTime.now(),
+            focusedDay: _focusedDay,
             headerStyle: HeaderStyle(
               titleCentered: true,
               formatButtonVisible: false,
@@ -78,11 +78,12 @@ class _calendarState extends State<calendar> {
             selectedDayPredicate: (day){
               return isSameDay(_selectedDay,day);
             },
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
             onDaySelected: (selectedDay,focusedDay){
               setState(() {
                 _selectedDay=selectedDay;
-                // print("selectedDay");
-                // print(_selectedDay?.day.runtimeType);
                 _focusedDay=focusedDay;
               });
             },
@@ -103,7 +104,7 @@ class _calendarState extends State<calendar> {
           child:TextButton(
             onPressed: () {
               Navigator.push(context,
-              MaterialPageRoute(builder: (context)=>fiveScreen(_selectedDay?.day.toString() as Object)));
+              MaterialPageRoute(builder: (context)=>fiveScreen(_selectedDay?.day.toString() as Object,_selectedDay?.month.toString() as Object)));
             },
             child: Image(
               width: 400,
@@ -171,7 +172,7 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
                   child: Image.asset("imageFile/d.png",width: 30,height: 30,),
                   // padding: EdgeInsets.only(top: 1, bottom: 1),
                   width: MediaQuery.of(context).size.width,
-                  height:37,
+                  height:32,
                   decoration: BoxDecoration(
                       shape:BoxShape.circle,
                       color: Color(0xffE7E3D1)
@@ -180,7 +181,7 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
               Container(
                 // padding: EdgeInsets.only(top: 1, bottom: 1),
                 width: MediaQuery.of(context).size.width,
-                height:38,
+                height:32,
                 decoration: BoxDecoration(
                   shape:BoxShape.circle,
                   color: Color(0xffE7E3D1),
@@ -203,7 +204,7 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height:38,
+                height:32,
                 decoration: BoxDecoration(
                   shape:BoxShape.circle,
                   color: Colors.blueAccent,
@@ -226,7 +227,7 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height:38,
+                height:32,
                 decoration: BoxDecoration(
                   shape:BoxShape.circle,
                   color: Colors.black,
@@ -249,4 +250,3 @@ class sb{
     child: Container(color: Colors.blue,),
   );
 }
-

@@ -4,15 +4,16 @@ import 'fourScreen.dart';
 
 
 class fiveScreen extends StatefulWidget {
-  final Object argument;
-  const fiveScreen(this.argument);
+  final Object day;
+  final Object month;
+  const fiveScreen(this.day,this.month);
 
   @override
   State<fiveScreen> createState() => _fiveScreenState();
 }
 
 class _fiveScreenState extends State<fiveScreen> {
-  bool _isChecked = false;
+  bool _isChecked1 = false;
   bool _isChecked2 = false;
   bool _isChecked3 = false;
   bool _isChecked4 = false;
@@ -24,6 +25,7 @@ class _fiveScreenState extends State<fiveScreen> {
   bool _isChecked10 = false;
   bool _isChecked11 = false;
   bool _isChecked12 = false;
+
 
   Future<bool> existing() async {
     final ref = FirebaseDatabase.instance.ref();
@@ -361,11 +363,26 @@ class _fiveScreenState extends State<fiveScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Checkbox(
-                            value: _isChecked,
+                            value: _isChecked1,
                             onChanged: (value) {
                               setState(() {
-                                _isChecked = value!;
+                                _isChecked1 = value!;
                               });
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"happy");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"happy"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"happy", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"happy");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"happy", v-1)
+                                });
+                              }
                             },
                           ),
                           Text(
@@ -379,7 +396,22 @@ class _fiveScreenState extends State<fiveScreen> {
                               setState(() {
                                 _isChecked2 = value!;
                               });
-                            },
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"funny");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"funny"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"funny", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"funny");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"funny", v-1)
+                                });
+                              }
+                              },
                           ),
                           Text(
                             '즐거웠어요',
@@ -397,6 +429,21 @@ class _fiveScreenState extends State<fiveScreen> {
                               setState(() {
                                 _isChecked3 = value!;
                               });
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"refreshing");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"refreshing"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"refreshing", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"refreshing");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"refreshing", v-1)
+                                });
+                              }
                             },
                           ),
                           Text(
@@ -410,6 +457,21 @@ class _fiveScreenState extends State<fiveScreen> {
                               setState(() {
                                 _isChecked4 = value!;
                               });
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"annoying");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"annoying"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"annoying", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"annoying");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"annoying", v-1)
+                                });
+                              }
                             },
                           ),
                           Text(
@@ -428,10 +490,25 @@ class _fiveScreenState extends State<fiveScreen> {
                               setState(() {
                                 _isChecked5 = value!;
                               });
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"tired");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"tired"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"tired", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"tired");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"tired", v-1)
+                                });
+                              }
                             },
                           ),
                           Text(
-                            '힘들어요(지금내가..)',
+                            '힘들어요',
                             style: TextStyle(fontSize: 20),
                           ),
                           SizedBox(width: 20),
@@ -441,10 +518,25 @@ class _fiveScreenState extends State<fiveScreen> {
                               setState(() {
                                 _isChecked6 = value!;
                               });
+                              if(value==true){
+                                Future<int> count = get(widget.month,widget.day,"sad");
+                                count.then((v) => {
+                                  if(v==-1){
+                                    createData(widget.month,widget.day,"sad"),
+
+                                  },
+                                  statUpdate(widget.month,widget.day,"sad", v+1)
+                                });
+                              }else{
+                                Future<int> count = get(widget.month,widget.day,"sad");
+                                count.then((v) => {
+                                  statUpdate(widget.month,widget.day,"sad", v-1)
+                                });
+                              }
                             },
                           ),
                           Text(
-                            '우아아',
+                            '슬퍼요',
                             style: TextStyle(fontSize: 20),
                           ),
                         ],
@@ -485,24 +577,38 @@ class _fiveScreenState extends State<fiveScreen> {
   }
 }
 
-void statUpdate(String Month,String stat,int count){
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month");
+void statUpdate(Object Month,Object dating,String stat,int count){
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/$dating");
   ref.update({
     "$stat":count,
   });
 }
-void createData(String Month){
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month");
-  ref.set({
+Future<void> createData(Object Month,Object dating,String stat) async {
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/$dating");
+  await ref.set({
     "happy":0,
+    "funny":0,
+    "refreshing":0,
+    "annoying":0,
     "sad":0,
-    "funny":0
+    "tired":0,
+
+    "walk":0,
+    "shopping":0,
+    "cutting":0,
+    "meeting":0,
+    "trip":0,
+    "shower":0
     }
   );
+  await ref.update({
+    "$stat":1,
+  });
+  print("stat후");
 }
-Future<int> get(String Month, String stat) async {
+Future<int> get(Object Month, Object dating,String stat) async {
   final ref = FirebaseDatabase.instance.ref();
-  final snapshot = await ref.child('users/$Month/$stat').get();
+  final snapshot = await ref.child('users/$Month/$dating/$stat').get();
   if (snapshot.exists) {
     return snapshot.value as int;
   } else {
