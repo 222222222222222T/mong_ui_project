@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'fourScreen.dart';
 
 
+
 class fiveScreen extends StatefulWidget {
   final Object day;
   final Object month;
@@ -56,8 +57,9 @@ class _fiveScreenState extends State<fiveScreen> {
                 child: Text(
                   '<         2023.5.13        >',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 26,
                     fontWeight: FontWeight.bold,
+                    fontFamily: '나눔손글씨'
                   ),
                 ),
               ),
@@ -84,35 +86,42 @@ class _fiveScreenState extends State<fiveScreen> {
                     borderRadius: BorderRadius.circular(46),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      Text(
+                        'today monsil',//상단위로 위치하게 해야함
+                        style: TextStyle
+                          (fontSize: 40,
+                          fontFamily: '나눔손글씨',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height:100),
                       TextField(
                         decoration: InputDecoration(
-                          hintText: '텍스트를 입력하세요',
+                          hintText: '   오늘의 일기를 입력하세요',
+                          border: InputBorder.none,
                           contentPadding: EdgeInsets.all(16),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Text(
-                        'today monsil',//상단위로 위치하게 해야함
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 24),
-                      ),
+
                     ],
                   ),
                 ),
               ),
 
-              SizedBox(height: 40),
+              SizedBox(height: 30),
               Container(
                 margin: EdgeInsets.only(left: 60),
                 child: Text(
                   'photo',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontFamily: '나눔손글씨',
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
               ),
               SizedBox(height: 20),
               Center(
@@ -124,6 +133,12 @@ class _fiveScreenState extends State<fiveScreen> {
                     color: Color(0xFFE7E3D1),
                     borderRadius: BorderRadius.circular(46),
                   ),
+                  child: IconButton(
+                    icon: Icon(Icons.add_a_photo),
+                    onPressed: () {
+                      _showBottomSheet();
+                    },
+                  ),
                 ),
               ),
               SizedBox(height: 40),
@@ -132,7 +147,8 @@ class _fiveScreenState extends State<fiveScreen> {
                 child: Text(
                   'Today',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontFamily: '나눔손글씨',
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -149,12 +165,14 @@ class _fiveScreenState extends State<fiveScreen> {
                 ),
               ),
               SizedBox(height: 0),
+              
               Container(
                 margin: EdgeInsets.only(left: 60),
                 child: Text(
-                  'I do ~ ',
+                  'I do',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontFamily: '나눔손글씨',
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -194,7 +212,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '산책갔어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold,
+                              ),
                               ),
                               SizedBox(width: 20),
                               Checkbox(
@@ -207,7 +229,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '쇼핑했어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                    fontSize: 24,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -225,7 +251,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '미용했어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               SizedBox(width: 20),
                               Checkbox(
@@ -238,7 +268,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '친구를 만났어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -256,7 +290,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '놀러갔어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: '나눔손글씨',
+                                ),
                               ),
                               SizedBox(width: 20),
                               Checkbox(
@@ -269,7 +307,11 @@ class _fiveScreenState extends State<fiveScreen> {
                               ),
                               Text(
                                 '깨끗해졌어요',
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -280,6 +322,8 @@ class _fiveScreenState extends State<fiveScreen> {
 
                 ),
               ),
+
+
 
 
 
@@ -339,10 +383,11 @@ class _fiveScreenState extends State<fiveScreen> {
               Container(
                 margin: EdgeInsets.only(left: 60),
                 child: Text(
-                  'I feel ~ ',
+                  'I feel',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
+                    fontFamily: '나눔손글씨',
                   ),
                 ),
               ),
@@ -387,7 +432,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '행복했어요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(width: 20),
                           Checkbox(
@@ -415,7 +464,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '즐거웠어요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -448,7 +501,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '상쾌했어요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(width: 20),
                           Checkbox(
@@ -476,7 +533,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '짜증났어요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -509,7 +570,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '힘들어요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(width: 20),
                           Checkbox(
@@ -537,7 +602,11 @@ class _fiveScreenState extends State<fiveScreen> {
                           ),
                           Text(
                             '슬퍼요',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -563,8 +632,11 @@ class _fiveScreenState extends State<fiveScreen> {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => fourScreen()));
                     },
                     child: Text(
-                      'Save',
-                      style: TextStyle(fontSize: 24),
+                      '저장하기',
+                      style: TextStyle(
+                          fontSize: 24,
+                      fontFamily: '나눔손글씨',
+                      fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -573,6 +645,46 @@ class _fiveScreenState extends State<fiveScreen> {
             ],
           ),
         )
+    );
+  }
+  _showBottomSheet() {
+    return showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25),
+        ),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('사진찍기'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Divider(
+              thickness: 3,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('라이브러리에서 불러오기'),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        );
+      },
     );
   }
 }

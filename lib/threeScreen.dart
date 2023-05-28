@@ -1,38 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mong_ui/twoScreen.dart';
 import 'fourScreen.dart';
+import 'twoScreen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class threeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        // primarySwatch: buildMaterialColor(Color(0xffFCF5B6)),
         scaffoldBackgroundColor: Color(0xffFAF9E9),
       ),
       home: PhotoInfoScreen(),
     );
   }
-}
-MaterialColor buildMaterialCytolor(Color color) {
-  List strengths = <double>[.05];
-  Map<int, Color> swatch = {};
-  final int r = color.red, g = color.green, b = color.blue;
-
-  for (int i = 1; i < 10; i++) {
-    strengths.add(0.1 * i);
-  }
-  strengths.forEach((strength) {
-    final double ds = 0.5 - strength;
-    swatch[(strength * 1000).round()] = Color.fromRGBO(
-      r + ((ds < 0 ? r : (255 - r)) * ds).round(),
-      g + ((ds < 0 ? g : (255 - g)) * ds).round(),
-      b + ((ds < 0 ? b : (255 - b)) * ds).round(),
-      1,
-    );
-  });
-  return MaterialColor(color.value, swatch);
 }
 
 class PhotoInfoScreen extends StatefulWidget {
@@ -47,72 +28,123 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              width: 200, height: 200,
-              decoration: BoxDecoration(
-                color: Color(0xffE7E3D1),
-                borderRadius: BorderRadius.circular(1000),
-              ),
-              child: IconButton(
-                icon: Icon(Icons.add_a_photo),
-                onPressed: () {
-                  _showBottomSheet();
-                },
-              ),
-            ),
-            SizedBox(height: 60),
-            Center(
-              child: Container(
-                margin: EdgeInsets.only(right: 0),
-                width: 250,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color(0xFFE7E3D1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                        hintText: '텍스트를 입력하세요',
-                          contentPadding: EdgeInsets.symmetric(vertical: 10)
-                      ),
-                    ),
-                    SizedBox(height: 20),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
 
-                  ],
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+
+
+              /*Container(       다시 two screen 으로 돌아갔을 때 two screen의 기능이 먹히지 않는 문제가 생김  왜?
+                margin: EdgeInsets.fromLTRB(0, 50, 300, 0),
+                child: TextButton(
+                  onPressed: () {
+                    // print(widget.argument);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => twoScreen()));
+                  },
+                  child: Image.asset(
+                    "imageFile/back.png",
+                    width: 55,
+                    height: 60,
+                  ),
+                ),
+              ),*/
+
+              SizedBox(height: 120),
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Color(0xffE7E3D1),
+                  borderRadius: BorderRadius.circular(1000),
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.add_a_photo),
+                  onPressed: () {
+                    _showBottomSheet();
+                  },
                 ),
               ),
-            ),
-            SizedBox(height: 100),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => fourScreen()));
-              },
-              style: ButtonStyle(
-                minimumSize: MaterialStateProperty.all<Size>(Size(150, 60)),
-                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFFCF5B6)),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.black), // 텍스트 색상
-              ),
-              child: Text(
-                '몽 저장하기',
+              SizedBox(height: 35),
+              Text(
+                "name",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: '나눔손글씨',
-                  fontSize: 25 ,
-                  fontWeight: FontWeight.bold// 원하는 폰트 설정
+                  color: Color(0xff666666),
+                  fontSize: 40,
                 ),
               ),
-            ),
+              SizedBox(height: 30),
+              Container(
+                width: 253,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0x7fe7e3d1),
+                ),
+                child: TextField(
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    //hintText: '텍스트를 입력하세요',
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  ),
+                ),
+              ),
+              SizedBox(height: 40),
+              Text(
+                "birthday",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: '나눔손글씨',
+                  color: Color(0xff666666),
+                  fontSize: 40,
+                ),
+              ),
+              SizedBox(height: 30),
+              Container(
+                width: 253,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0x7fe7e3d1),
+                ),
+                child: TextField(
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    //hintText: '텍스트를 입력하세요',
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  ),
+                ),
+              ),
 
-          ],
+              SizedBox(height: 60),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => fourScreen()));
+                },
+                style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(Size(150, 60)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xFFFCF5B6)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.black), // 텍스트 색상
+                ),
+                child: Text(
+                  '몽 저장하기',
+                  style: TextStyle(
+                    fontFamily: '나눔손글씨',
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold, // 원하는 폰트 설정
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
