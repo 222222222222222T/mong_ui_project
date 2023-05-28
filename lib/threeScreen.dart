@@ -66,35 +66,52 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                 },
               ),
             ),
-            SizedBox(height: 20),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  photoName = value;
-                });
-              },
-              decoration: InputDecoration(
-                labelText: 'name',
+            SizedBox(height: 60),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(right: 0),
+                width: 250,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Color(0xFFE7E3D1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                        hintText: '텍스트를 입력하세요',
+                          contentPadding: EdgeInsets.symmetric(vertical: 10)
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 20),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  birthday = value;
-                });
-              },
-              decoration: InputDecoration(
-                labelText: 'birthday',
-              ),
-            ),
-            SizedBox(height: 20),
+            SizedBox(height: 100),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>fourScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => fourScreen()));
               },
-              child: Text('Okay'),
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all<Size>(Size(150, 60)),
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFFCF5B6)),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.black), // 텍스트 색상
+              ),
+              child: Text(
+                '몽 저장하기',
+                style: TextStyle(
+                  fontFamily: '나눔손글씨',
+                  fontSize: 25 ,
+                  fontWeight: FontWeight.bold// 원하는 폰트 설정
+                ),
+              ),
             ),
+
           ],
         ),
       ),
