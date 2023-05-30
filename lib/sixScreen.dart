@@ -13,17 +13,30 @@ class sixScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(65, 30, 0, 0),
+              padding: EdgeInsets.fromLTRB(40, 30, 0, 0),
               child: Align(
                   alignment: Alignment.topLeft,
-                  child: Text('2023.5.10')
+                  child: Text(
+                      '<   2023.5.10   >',
+                  style: TextStyle(
+                        fontFamily: '나눔손글씨',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold, // 원하는 폰트 설정
+                  )
+                  ),
               ),
             ),
             Flexible(child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('month statistics'),
+                  Text('이번 달 몽실이는?' ,
+                      style: TextStyle(
+                fontFamily: '나눔손글씨',
+                fontSize: 25,
+                fontWeight: FontWeight.bold, // 원하는 폰트 설정
+              )
+            ),
                   Container(
 
                     padding: EdgeInsets.fromLTRB(30, 7, 0, 0),
@@ -96,7 +109,7 @@ class sixScreen extends StatelessWidget {
                     color: Color(0xffE7E3D1),
                     borderRadius: BorderRadius.circular(30)
                 ),
-                width: 350, height: 300,
+                width: 350, height: 350,
                 child: Column(
 
                   children: [

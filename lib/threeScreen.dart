@@ -39,7 +39,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
             children: <Widget>[
 
 
-              /*Container(       다시 two screen 으로 돌아갔을 때 two screen의 기능이 먹히지 않는 문제가 생김  왜?
+              Container(       //다시 two screen 으로 돌아갔을 때 two screen의 기능이 먹히지 않는 문제가 생김  왜?
                 margin: EdgeInsets.fromLTRB(0, 50, 300, 0),
                 child: TextButton(
                   onPressed: () {
@@ -52,7 +52,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                     height: 60,
                   ),
                 ),
-              ),*/
+              ),
 
               SizedBox(height: 120),
               if (_pickedFile == null)
