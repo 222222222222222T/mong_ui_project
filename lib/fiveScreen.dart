@@ -952,12 +952,11 @@ class _fiveScreenState extends State<fiveScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
-        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
         Reference referenceRoot = FirebaseStorage.instance.ref();
         Reference referenceDirImages = referenceRoot.child('images');
 
-        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+        Reference referenceImageToUpload = referenceDirImages.child('photo');
 
         try {
           referenceImageToUpload.putFile(File(pickedFile!.path));
@@ -979,12 +978,11 @@ class _fiveScreenState extends State<fiveScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
-        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
         Reference referenceRoot = FirebaseStorage.instance.ref();
         Reference referenceDirImages = referenceRoot.child('images');
 
-        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+        Reference referenceImageToUpload = referenceDirImages.child('photo');
 
         try {
           referenceImageToUpload.putFile(File(pickedFile!.path));
