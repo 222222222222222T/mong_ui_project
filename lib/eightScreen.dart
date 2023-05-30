@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'fourScreen.dart';
 import 'sevenScreen.dart';
-import 'eightScreen.dart';
-class sixScreen extends StatelessWidget {
-  const sixScreen({Key? key}) : super(key: key);
+import 'sixScreen.dart';
+class eightScreen extends StatelessWidget {
+  const eightScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,55 +17,55 @@ class sixScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.fromLTRB(40, 20, 0, 0),
               child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                      '<   2023 . 5   >',
-                  style: TextStyle(
-                        fontFamily: '나눔손글씨',
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                  )
-                  ),
+                alignment: Alignment.topLeft,
+                child: Text(
+                    '<   2023 . 5   >',
+                    style: TextStyle(
+                      fontFamily: '나눔손글씨',
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    )
+                ),
               ),
             ),
             Flexible(child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('이번 달 몽실이가 한 것은?' ,
+                  Text('이번 달 몽실이의 기분은?' ,
                       style: TextStyle(
-                fontFamily: '나눔손글씨',
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              )
-            ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => eightScreen()),
-                  );
-                },
-                child:
-                  Container(
-                    padding: EdgeInsets.fromLTRB(15, 8, 0, 0),
-                    width: 130,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Color(0xffFFF0F5),
-                      borderRadius: BorderRadius.circular(7),
-                    ),
+                        fontFamily: '나눔손글씨',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      )
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => sixScreen()),
+                        );
+                      },
+                      child:
+                      Container(
+                        padding: EdgeInsets.fromLTRB(15, 8, 0, 0),
+                        width: 130,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color(0xffFFF0F5),
+                          borderRadius: BorderRadius.circular(7),
+                        ),
 
-                    child: Text(
-                      'I Feel 보러가기',
-                      style: TextStyle(
-                          fontSize: 23,
-                          fontFamily: '나눔손글씨',
-                          fontWeight: FontWeight.bold),
-                    ),
+                        child: Text(
+                          'I DO 보러가기',
+                          style: TextStyle(
+                              fontSize: 23,
+                              fontFamily: '나눔손글씨',
+                              fontWeight: FontWeight.bold),
+                        ),
 
+                      )
                   )
-              )
 
                 ],
               ),
@@ -119,15 +119,15 @@ class sixScreen extends StatelessWidget {
                       children: [
                         Container(
                             margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                            child: Text('# 산책',
+                            child: Text('# 기뻐요',
                               style: TextStyle(
                                   fontSize: 15,
                                   fontFamily: '나눔손글씨',
                                   fontWeight: FontWeight.bold),
                             )),
                         Container(
-                            margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                            child: Text('# 쇼핑',
+                            margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                            child: Text('# 설레요',
                               style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: '나눔손글씨',
@@ -135,15 +135,15 @@ class sixScreen extends StatelessWidget {
                             )),
                         Container(
                             margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                            child: Text('# 여행',
+                            child: Text('# 슬퍼요',
                               style: TextStyle(
                                   fontSize: 15,
                                   fontFamily: '나눔손글씨',
                                   fontWeight: FontWeight.bold),
                             )),
                         Container(
-                            margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                            child: Text('# 병원',
+                            margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                            child: Text('# 힘들어요',
                               style: TextStyle(
                                   fontSize: 15,
                                   fontFamily: '나눔손글씨',
@@ -186,7 +186,7 @@ class sixScreen extends StatelessWidget {
                           ),
 
                           /*Container(
-                            
+
                             padding: EdgeInsets.fromLTRB(30, 7, 0, 0),
                             decoration: BoxDecoration(
                               color: Color(0xffFCF5B6),
@@ -268,7 +268,7 @@ class sixScreen extends StatelessWidget {
                         children: [
                           Container(
                               margin: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                              child: Text('# 산책',
+                              child: Text('# 행복해요',
                                 style: TextStyle(
                                     fontSize: 15,
                                     fontFamily: '나눔손글씨',
@@ -276,20 +276,20 @@ class sixScreen extends StatelessWidget {
                               )
                           ),
                           Container(
-                              margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                              child: Text('# 쇼핑',
+                              margin: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                              child: Text('# 설레요',
                                 style: TextStyle(
                                     fontSize: 15,
                                     fontFamily: '나눔손글씨',
                                     fontWeight: FontWeight.bold),)),
                           Container(
-                              margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                              child: Text('# 여행',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: '나눔손글씨',
-                                    fontWeight: FontWeight.bold),
-                              ),)
+                            margin: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                            child: Text('# 슬퍼요',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: '나눔손글씨',
+                                  fontWeight: FontWeight.bold),
+                            ),)
                         ],
                       ),
                     )
