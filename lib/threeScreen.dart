@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mong_ui/twoScreen.dart';
 import 'fourScreen.dart';
 import 'twoScreen.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class threeScreen extends StatelessWidget {
   @override
@@ -24,6 +26,7 @@ class PhotoInfoScreen extends StatefulWidget {
 class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
   String photoName = '';
   String birthday = '';
+  XFile? _pickedFile;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,8 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
               ),*/
 
               SizedBox(height: 120),
-              Container(
+              if (_pickedFile == null)
+                Container(
                 width: 200,
                 height: 200,
                 decoration: BoxDecoration(
@@ -65,7 +69,18 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                     _showBottomSheet();
                   },
                 ),
-              ),
+              )
+              else
+                Container(
+                  width: 200, height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(1000),
+                    image: DecorationImage(
+                        image: FileImage(File(_pickedFile!.path)),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+
               SizedBox(height: 35),
               Text(
                 "name",
@@ -166,7 +181,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _getCameraImage(),
               child: const Text('사진찍기'),
             ),
             const SizedBox(
@@ -179,7 +194,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _getPhotoLibraryImage(),
               child: const Text('라이브러리에서 불러오기'),
             ),
             const SizedBox(
@@ -190,4 +205,33 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
       },
     );
   }
+
+  _getCameraImage() async {
+    final pickedFile =
+    await ImagePicker().pickImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+    } else {
+      if (kDebugMode) {
+        print('이미지 선택안함');
+      }
+    }
+  }
+
+  _getPhotoLibraryImage() async {
+    final pickedFile =
+    await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+    } else {
+      if (kDebugMode) {
+        print('이미지 선택안함');
+      }
+    }
+  }
+
 }
