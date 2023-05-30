@@ -14,6 +14,7 @@ class fiveScreen extends StatefulWidget {
 }
 
 class _fiveScreenState extends State<fiveScreen> {
+  // void init
   bool _isChecked1 = false;
   bool _isChecked2 = false;
   bool _isChecked3 = false;
@@ -37,13 +38,105 @@ class _fiveScreenState extends State<fiveScreen> {
       return false;
     }
   }
-  //MaterialApp(
-  //       title: 'Flutter Demo',
-  //       theme: ThemeData(),
-  //       home: MyHomePage(),
-  //     );
   @override
   Widget build(BuildContext context) {
+    Future<int> count1 = get(widget.month,widget.day,"happy");
+    Future<int> count2 = get(widget.month,widget.day,"funny");
+    Future<int> count3 = get(widget.month,widget.day,"refreshing");
+    Future<int> count4 = get(widget.month,widget.day,"annoying");
+    Future<int> count5 = get(widget.month,widget.day,"tired");
+    Future<int> count6 = get(widget.month,widget.day,"sad");
+    Future<int> count7 = get(widget.month,widget.day,"walk");
+    Future<int> count8 = get(widget.month,widget.day,"shopping");
+    Future<int> count9 = get(widget.month,widget.day,"cutting");
+    Future<int> count10 = get(widget.month,widget.day,"meeting");
+    Future<int> count11 = get(widget.month,widget.day,"trip");
+    Future<int> count12 = get(widget.month,widget.day,"shower");
+    count1.then((c1) => {
+      if(c1==1){
+        print("1바꿈"),
+        _isChecked1=true
+      }
+    });
+    count2.then((c2) => {
+      if(c2==1){
+        print("2바꿈"),
+        _isChecked2=true
+      }
+    });
+    count3.then((c3) => {
+      if(c3==1){
+        print("3바꿈"),
+        _isChecked3=true
+      }
+    });
+    count4.then((c4) => {
+      if(c4==1){
+        print("4바꿈"),
+        _isChecked4=true
+      }
+    });
+    count5.then((c5) => {
+      if(c5==1){
+        print("5바꿈"),
+        _isChecked5=true
+      }
+    });
+    count6.then((c6) => {
+      if(c6==1){
+        print("6바꿈"),
+        _isChecked6=true
+      }
+    });
+    count7.then((c7) => {
+      if(c7==1){
+        print("7바꿈"),
+        _isChecked7=true
+      }
+    });
+    count8.then((c8) => {
+      if(c8==1){
+        print("8바꿈"),
+        _isChecked8=true
+      }
+    });
+    count9.then((c9) => {
+      if(c9==1){
+        print("9바꿈"),
+        _isChecked9=true
+      }
+    });
+    count10.then((c10) => {
+      if(c10==1){
+        print("10바꿈"),
+        _isChecked10=true
+      }
+    });
+    count11.then((c11) => {
+      if(c11==1){
+        print("11바꿈"),
+        _isChecked11=true
+      }
+    });
+    count12.then((c12) => {
+      if(c12==1){
+        print("12바꿈"),
+        _isChecked12=true
+      }
+    });
+    print(_isChecked1);
+    print(_isChecked2);
+    print(_isChecked3);
+    print(_isChecked4);
+    print(_isChecked5);
+    print(_isChecked6);
+    print(_isChecked7);
+    print(_isChecked8);
+    print(_isChecked9);
+    print(_isChecked10);
+    print(_isChecked11);
+    print(_isChecked12);
+
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(),
@@ -57,9 +150,9 @@ class _fiveScreenState extends State<fiveScreen> {
                 child: Text(
                   '<         2023.5.13        >',
                   style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: '나눔손글씨'
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: '나눔손글씨'
                   ),
                 ),
               ),
@@ -165,7 +258,7 @@ class _fiveScreenState extends State<fiveScreen> {
                 ),
               ),
               SizedBox(height: 0),
-              
+
               Container(
                 margin: EdgeInsets.only(left: 60),
                 child: Text(
@@ -208,6 +301,21 @@ class _fiveScreenState extends State<fiveScreen> {
                                   setState(() {
                                     _isChecked7 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"walk");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"walk"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"walk", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"walk");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"walk", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
@@ -216,21 +324,36 @@ class _fiveScreenState extends State<fiveScreen> {
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
                                   fontWeight: FontWeight.bold,
-                              ),
+                                ),
                               ),
                               SizedBox(width: 20),
                               Checkbox(
                                 value: _isChecked8,
                                 onChanged: (value) {
                                   setState(() {
-                                    _isChecked2 = value!;
+                                    _isChecked8 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"shopping");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"shopping"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"shopping", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"shopping");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"shopping", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
                                 '쇼핑했어요',
                                 style: TextStyle(
-                                    fontSize: 24,
+                                  fontSize: 24,
                                   fontFamily: '나눔손글씨',
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -247,6 +370,21 @@ class _fiveScreenState extends State<fiveScreen> {
                                   setState(() {
                                     _isChecked9 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"cutting");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"cutting"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"cutting", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"cutting");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"cutting", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
@@ -264,6 +402,21 @@ class _fiveScreenState extends State<fiveScreen> {
                                   setState(() {
                                     _isChecked10 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"meeting");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"meeting"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"meeting", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"meeting");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"meeting", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
@@ -286,6 +439,21 @@ class _fiveScreenState extends State<fiveScreen> {
                                   setState(() {
                                     _isChecked11 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"trip");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"trip"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"trip", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"trip");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"trip", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
@@ -303,6 +471,21 @@ class _fiveScreenState extends State<fiveScreen> {
                                   setState(() {
                                     _isChecked12 = value!;
                                   });
+                                  if(value==true){
+                                    Future<int> count = get(widget.month,widget.day,"shower");
+                                    count.then((v) => {
+                                      if(v==-1){
+                                        createData(widget.month,widget.day,"shower"),
+
+                                      },
+                                      statUpdate(widget.month,widget.day,"shower", v+1)
+                                    });
+                                  }else{
+                                    Future<int> count = get(widget.month,widget.day,"shower");
+                                    count.then((v) => {
+                                      statUpdate(widget.month,widget.day,"shower", v-1)
+                                    });
+                                  }
                                 },
                               ),
                               Text(
@@ -319,66 +502,8 @@ class _fiveScreenState extends State<fiveScreen> {
                       ),
                     ),
                   ),
-
                 ),
               ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-              /* 파이어베이스 수정부분
-              child: Row(
-                children: [
-                    Checkbox(
-                      value: _ischecked,
-                      onChanged: (value){
-                        setState(() {
-                          _ischecked=value!;
-                        });
-                        if(value==true){
-                          Future<int> count = get("May", "happy");
-                          count.then((value) => {
-                          if(value==-1){
-                            createData("May")
-                          }else{
-                            print("업데이트전"),
-                            statUpdate("May", "happy", value+1)
-                          }
-                          });
-                        }else{
-                          Future<int> count = get("May", "happy");
-                          count.then((value) => {
-                          if(value==-1){
-                            createData("May")
-                          }else{
-                            print("업데이트전"),
-                            statUpdate("May", "happy", value-1)
-                          }
-                          });
-                        }
-                      // Future<int> count = get("May", "happy");
-                      // count.then((value) => {
-                      // if(value==-1){
-                      //   createData("May")
-                      // }else{
-                      //   print("업데이트전"),
-                      //   statUpdate("May", "happy", value+1)
-                      // }
-                      // });
-                    })
-                ],
-              ),
-              */
-
               SizedBox(height: 20),
               Container(
                 margin: EdgeInsets.only(left: 60),
@@ -460,7 +585,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                   statUpdate(widget.month,widget.day,"funny", v-1)
                                 });
                               }
-                              },
+                            },
                           ),
                           Text(
                             '즐거웠어요',
@@ -487,7 +612,6 @@ class _fiveScreenState extends State<fiveScreen> {
                                 count.then((v) => {
                                   if(v==-1){
                                     createData(widget.month,widget.day,"refreshing"),
-
                                   },
                                   statUpdate(widget.month,widget.day,"refreshing", v+1)
                                 });
@@ -635,8 +759,8 @@ class _fiveScreenState extends State<fiveScreen> {
                       '저장하기',
                       style: TextStyle(
                           fontSize: 24,
-                      fontFamily: '나눔손글씨',
-                      fontWeight: FontWeight.bold),
+                          fontFamily: '나눔손글씨',
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -711,7 +835,7 @@ Future<void> createData(Object Month,Object dating,String stat) async {
     "meeting":0,
     "trip":0,
     "shower":0
-    }
+  }
   );
   await ref.update({
     "$stat":1,
