@@ -66,7 +66,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                 ),
               ),
 
-              SizedBox(height: 120),
+              SizedBox(height: 40),
               if (_pickedFile == null)
                 Container(
                 width: 200,
