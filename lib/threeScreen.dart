@@ -71,7 +71,11 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                 ),
               )
               else
-                Container(
+                new GestureDetector(
+                  onTap: (){
+                    _showBottomSheet();
+                  },
+                child: new Container(
                   width: 200, height: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1000),
@@ -79,6 +83,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
                         image: FileImage(File(_pickedFile!.path)),
                         fit: BoxFit.cover),
                   ),
+                ),
                 ),
 
               SizedBox(height: 35),
