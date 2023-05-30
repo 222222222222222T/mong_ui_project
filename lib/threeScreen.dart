@@ -31,6 +31,8 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
   String photoName = '';
   String birthday = '';
   XFile? _pickedFile;
+  String imageUrl = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -221,6 +223,19 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
+        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+        Reference referenceRoot = FirebaseStorage.instance.ref();
+        Reference referenceDirImages = referenceRoot.child('images');
+
+        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+        try {
+          referenceImageToUpload.putFile(File(pickedFile!.path));
+          imageUrl =referenceImageToUpload.getDownloadURL() as String;
+        } catch(error) {
+          //error
+        }
       });
     } else {
       if (kDebugMode) {
@@ -235,6 +250,19 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
+        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+        Reference referenceRoot = FirebaseStorage.instance.ref();
+        Reference referenceDirImages = referenceRoot.child('images');
+
+        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+        try {
+          referenceImageToUpload.putFile(File(pickedFile!.path));
+          imageUrl = referenceImageToUpload.getDownloadURL() as String;
+        } catch(error) {
+          //error
+        }
       });
     } else {
       if (kDebugMode) {

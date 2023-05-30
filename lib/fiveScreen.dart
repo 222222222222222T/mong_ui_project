@@ -1,7 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:image_picker/image_picker.dart';
 import 'fourScreen.dart';
+import 'dart:io';
 
 class fiveScreen extends StatefulWidget {
   final Object day;
@@ -27,6 +30,8 @@ class _fiveScreenState extends State<fiveScreen> {
   bool _isChecked10 = false;
   bool _isChecked11 = false;
   bool _isChecked12 = false;
+  XFile? _pickedFile;
+
 
   Future<bool> existing() async {
     final ref = FirebaseDatabase.instance.ref();
@@ -181,7 +186,9 @@ class _fiveScreenState extends State<fiveScreen> {
               ),
               SizedBox(height: 20),
               Center(
-                child: Container(
+                child:
+
+                Container(
                   margin: EdgeInsets.only(right: 0),
                   width: 350,
                   height: 200,
@@ -814,7 +821,7 @@ class _fiveScreenState extends State<fiveScreen> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _getCameraImage(),
               child: const Text('사진찍기'),
             ),
             const SizedBox(
@@ -827,7 +834,7 @@ class _fiveScreenState extends State<fiveScreen> {
               height: 10,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _getPhotoLibraryImage(),
               child: const Text('라이브러리에서 불러오기'),
             ),
             const SizedBox(
@@ -838,6 +845,34 @@ class _fiveScreenState extends State<fiveScreen> {
       },
     );
   }
+  _getCameraImage() async {
+    final pickedFile =
+    await ImagePicker().pickImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+    } else {
+      if (kDebugMode) {
+        print('이미지 선택안함');
+      }
+    }
+  }
+
+  _getPhotoLibraryImage() async {
+    final pickedFile =
+    await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _pickedFile = pickedFile;
+      });
+    } else {
+      if (kDebugMode) {
+        print('이미지 선택안함');
+      }
+    }
+  }
+
 }
 
 void statUpdate(Object Month, Object dating, String stat, int count) {
