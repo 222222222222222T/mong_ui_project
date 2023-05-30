@@ -18,6 +18,8 @@ class fiveScreen extends StatefulWidget {
 
 class _fiveScreenState extends State<fiveScreen> {
   // void init
+
+  bool check = false;
   bool _isChecked1 = false;
   bool _isChecked2 = false;
   bool _isChecked3 = false;
@@ -45,54 +47,54 @@ class _fiveScreenState extends State<fiveScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Future<int> count1 = get(widget.month, widget.day, "happy");
-    Future<int> count2 = get(widget.month, widget.day, "funny");
-    Future<int> count3 = get(widget.month, widget.day, "refreshing");
-    Future<int> count4 = get(widget.month, widget.day, "annoying");
-    Future<int> count5 = get(widget.month, widget.day, "tired");
-    Future<int> count6 = get(widget.month, widget.day, "sad");
-    Future<int> count7 = get(widget.month, widget.day, "walk");
-    Future<int> count8 = get(widget.month, widget.day, "shopping");
-    Future<int> count9 = get(widget.month, widget.day, "cutting");
-    Future<int> count10 = get(widget.month, widget.day, "meeting");
-    Future<int> count11 = get(widget.month, widget.day, "trip");
-    Future<int> count12 = get(widget.month, widget.day, "shower");
-    count1.then((c1) => {
-          if (c1 == 1) {print("1바꿈"), _isChecked1 = true}
-        });
-    count2.then((c2) => {
-          if (c2 == 1) {print("2바꿈"), _isChecked2 = true}
-        });
-    count3.then((c3) => {
-          if (c3 == 1) {print("3바꿈"), _isChecked3 = true}
-        });
-    count4.then((c4) => {
-          if (c4 == 1) {print("4바꿈"), _isChecked4 = true}
-        });
-    count5.then((c5) => {
-          if (c5 == 1) {print("5바꿈"), _isChecked5 = true}
-        });
-    count6.then((c6) => {
-          if (c6 == 1) {print("6바꿈"), _isChecked6 = true}
-        });
-    count7.then((c7) => {
-          if (c7 == 1) {print("7바꿈"), _isChecked7 = true}
-        });
-    count8.then((c8) => {
-          if (c8 == 1) {print("8바꿈"), _isChecked8 = true}
-        });
-    count9.then((c9) => {
-          if (c9 == 1) {print("9바꿈"), _isChecked9 = true}
-        });
-    count10.then((c10) => {
-          if (c10 == 1) {print("10바꿈"), _isChecked10 = true}
-        });
-    count11.then((c11) => {
-          if (c11 == 1) {print("11바꿈"), _isChecked11 = true}
-        });
-    count12.then((c12) => {
-          if (c12 == 1) {print("12바꿈"), _isChecked12 = true}
-        });
+    // Future<int> count1 = get(widget.month, widget.day, "happy");
+    // Future<int> count2 = get(widget.month, widget.day, "funny");
+    // Future<int> count3 = get(widget.month, widget.day, "refreshing");
+    // Future<int> count4 = get(widget.month, widget.day, "annoying");
+    // Future<int> count5 = get(widget.month, widget.day, "tired");
+    // Future<int> count6 = get(widget.month, widget.day, "sad");
+    // Future<int> count7 = get(widget.month, widget.day, "walk");
+    // Future<int> count8 = get(widget.month, widget.day, "shopping");
+    // Future<int> count9 = get(widget.month, widget.day, "cutting");
+    // Future<int> count10 = get(widget.month, widget.day, "meeting");
+    // Future<int> count11 = get(widget.month, widget.day, "trip");
+    // Future<int> count12 = get(widget.month, widget.day, "shower");
+    // count1.then((c1) => {
+    //       if (c1 == 1) {print("1바꿈"), _isChecked1 = true}
+    //     });
+    // count2.then((c2) => {
+    //       if (c2 == 1) {print("2바꿈"), _isChecked2 = true}
+    //     });
+    // count3.then((c3) => {
+    //       if (c3 == 1) {print("3바꿈"), _isChecked3 = true}
+    //     });
+    // count4.then((c4) => {
+    //       if (c4 == 1) {print("4바꿈"), _isChecked4 = true}
+    //     });
+    // count5.then((c5) => {
+    //       if (c5 == 1) {print("5바꿈"), _isChecked5 = true}
+    //     });
+    // count6.then((c6) => {
+    //       if (c6 == 1) {print("6바꿈"), _isChecked6 = true}
+    //     });
+    // count7.then((c7) => {
+    //       if (c7 == 1) {print("7바꿈"), _isChecked7 = true}
+    //     });
+    // count8.then((c8) => {
+    //       if (c8 == 1) {print("8바꿈"), _isChecked8 = true}
+    //     });
+    // count9.then((c9) => {
+    //       if (c9 == 1) {print("9바꿈"), _isChecked9 = true}
+    //     });
+    // count10.then((c10) => {
+    //       if (c10 == 1) {print("10바꿈"), _isChecked10 = true}
+    //     });
+    // count11.then((c11) => {
+    //       if (c11 == 1) {print("11바꿈"), _isChecked11 = true}
+    //     });
+    // count12.then((c12) => {
+    //       if (c12 == 1) {print("12바꿈"), _isChecked12 = true}
+    //     });
     print(_isChecked1);
     print(_isChecked2);
     print(_isChecked3);
@@ -207,14 +209,72 @@ class _fiveScreenState extends State<fiveScreen> {
               SizedBox(height: 40),
               Container(
                 margin: EdgeInsets.only(left: 60),
-                child: Text(
-                  'Today',
-                  style: TextStyle(
-                    fontFamily: '나눔손글씨',
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child: Row(
+                  children: [
+                    Text(
+                      'Today Tag',
+                      style: TextStyle(
+                        fontFamily: '나눔손글씨',
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Checkbox(value: check,
+                        onChanged: (value){
+                          setState(() {
+                            Future<int> count1 = get(widget.month, widget.day, "happy");
+                            Future<int> count2 = get(widget.month, widget.day, "funny");
+                            Future<int> count3 = get(widget.month, widget.day, "refreshing");
+                            Future<int> count4 = get(widget.month, widget.day, "annoying");
+                            Future<int> count5 = get(widget.month, widget.day, "tired");
+                            Future<int> count6 = get(widget.month, widget.day, "sad");
+                            Future<int> count7 = get(widget.month, widget.day, "walk");
+                            Future<int> count8 = get(widget.month, widget.day, "shopping");
+                            Future<int> count9 = get(widget.month, widget.day, "cutting");
+                            Future<int> count10 = get(widget.month, widget.day, "meeting");
+                            Future<int> count11 = get(widget.month, widget.day, "trip");
+                            Future<int> count12 = get(widget.month, widget.day, "shower");
+                            count1.then((c1) => {
+                              if (c1 == 1) {print("1바꿈"), _isChecked1 = true}
+                            });
+                            count2.then((c2) => {
+                              if (c2 == 1) {print("2바꿈"), _isChecked2 = true}
+                            });
+                            count3.then((c3) => {
+                              if (c3 == 1) {print("3바꿈"), _isChecked3 = true}
+                            });
+                            count4.then((c4) => {
+                              if (c4 == 1) {print("4바꿈"), _isChecked4 = true}
+                            });
+                            count5.then((c5) => {
+                              if (c5 == 1) {print("5바꿈"), _isChecked5 = true}
+                            });
+                            count6.then((c6) => {
+                              if (c6 == 1) {print("6바꿈"), _isChecked6 = true}
+                            });
+                            count7.then((c7) => {
+                              if (c7 == 1) {print("7바꿈"), _isChecked7 = true}
+                            });
+                            count8.then((c8) => {
+                              if (c8 == 1) {print("8바꿈"), _isChecked8 = true}
+                            });
+                            count9.then((c9) => {
+                              if (c9 == 1) {print("9바꿈"), _isChecked9 = true}
+                            });
+                            count10.then((c10) => {
+                              if (c10 == 1) {print("10바꿈"), _isChecked10 = true}
+                            });
+                            count11.then((c11) => {
+                              if (c11 == 1) {print("11바꿈"), _isChecked11 = true}
+                            });
+                            count12.then((c12) => {
+                              if (c12 == 1) {print("12바꿈"), _isChecked12 = true}
+                            });
+                            check=value!;
+                          });
+                        }),
+                  ],
+                )
               ),
               SizedBox(height: 0),
               Container(
