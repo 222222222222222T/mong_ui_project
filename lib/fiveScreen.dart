@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -33,6 +34,7 @@ class _fiveScreenState extends State<fiveScreen> {
   bool _isChecked11 = false;
   bool _isChecked12 = false;
   XFile? _pickedFile;
+  String imageUrl = '';
 
 
   Future<bool> existing() async {
@@ -188,23 +190,62 @@ class _fiveScreenState extends State<fiveScreen> {
               ),
               SizedBox(height: 20),
               Center(
-                child:
-
-                Container(
-                  margin: EdgeInsets.only(right: 0),
-                  width: 350,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFE7E3D1),
-                    borderRadius: BorderRadius.circular(46),
-                  ),
-                  child: IconButton(
-                    icon: Icon(Icons.add_a_photo),
-                    onPressed: () {
-                      _showBottomSheet();
-                    },
-                  ),
-                ),
+                child:Row(
+                  children: [
+                    if (_pickedFile == null)
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 30),
+                          width: 350,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE7E3D1),
+                            borderRadius: BorderRadius.circular(46),
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.add_a_photo),
+                            onPressed: () {
+                              _showBottomSheet();
+                            },
+                          ),
+                        ),
+                      )
+                    else
+                      new GestureDetector(
+                        onTap: (){
+                          _showBottomSheet();
+                        },
+                        child: Center(
+                          child: new Container(
+                            margin: EdgeInsets.only(left:30),
+                            width: 350, height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(46),
+                              image: DecorationImage(
+                                  image: FileImage(File(_pickedFile!.path)),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                )
+                //
+                // Container(
+                //   margin: EdgeInsets.only(right: 0),
+                //   width: 350,
+                //   height: 200,
+                //   decoration: BoxDecoration(
+                //     color: Color(0xFFE7E3D1),
+                //     borderRadius: BorderRadius.circular(46),
+                //   ),
+                //   child: IconButton(
+                //     icon: Icon(Icons.add_a_photo),
+                //     onPressed: () {
+                //       _showBottomSheet();
+                //     },
+                //   ),
+                // ),
               ),
               SizedBox(height: 40),
               Container(
@@ -911,6 +952,19 @@ class _fiveScreenState extends State<fiveScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
+        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+        Reference referenceRoot = FirebaseStorage.instance.ref();
+        Reference referenceDirImages = referenceRoot.child('images');
+
+        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+        try {
+          referenceImageToUpload.putFile(File(pickedFile!.path));
+          imageUrl =referenceImageToUpload.getDownloadURL() as String;
+        } catch(error) {
+          //error
+        }
       });
     } else {
       if (kDebugMode) {
@@ -925,6 +979,19 @@ class _fiveScreenState extends State<fiveScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
+        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+        Reference referenceRoot = FirebaseStorage.instance.ref();
+        Reference referenceDirImages = referenceRoot.child('images');
+
+        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+        try {
+          referenceImageToUpload.putFile(File(pickedFile!.path));
+          imageUrl = referenceImageToUpload.getDownloadURL() as String;
+        } catch(error) {
+          //error
+        }
       });
     } else {
       if (kDebugMode) {
