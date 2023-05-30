@@ -6,13 +6,10 @@ import 'fourScreen.dart';
 import 'twoScreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-//<<<<<<< Updated upstream
-// import 'package:firebase_storage/firebase_storage.dart';
-// import 'package:get/get.dart';
-//=======
-//import 'package:firebase_storage/firebase_storage.dart'; 찬혁이꺼 pull했는데 나한테 오류나서 주석
-//import 'package:get/get.dart';
-//>>>>>>> Stashed changes
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:get/get.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:get/get.dart';
 
 
 
