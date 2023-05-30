@@ -45,12 +45,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  firebase_core: ^2.13.0
+  firebase_database: ^10.2.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  # rules and activating additional ones.de
+
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
@@ -91,6 +95,22 @@ flutter:
     - imageFile/back.png
     - imageFile/rcircle.png
     - imageFile/setting.png
+    - imageFile/dog1.jpg
+    - imageFile/dog2.png
+    - imageFile/dog3.png
+    - imageFile/dog4.png
+    - imageFile/dog5.png
+    - imageFile/dog6.png
+    - imageFile/dog7.png
+    - imageFile/dog8.png
+    - imageFile/dog9.png
+    - imageFile/dog10.png
+    - imageFile/dog11.png
+    - imageFile/dog12.png
+    - imageFile/dog13.png
+    - imageFile/dog14.png
+    - imageFile/dog15.png
+    - imageFile/settingdog2.png
 
 
 

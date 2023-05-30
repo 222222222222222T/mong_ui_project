@@ -21,7 +21,7 @@ class sixScreen extends StatelessWidget {
                   style: TextStyle(
                         fontFamily: '나눔손글씨',
                         fontSize: 25,
-                        fontWeight: FontWeight.bold, // 원하는 폰트 설정
+                        fontWeight: FontWeight.bold,
                   )
                   ),
               ),
@@ -34,7 +34,7 @@ class sixScreen extends StatelessWidget {
                       style: TextStyle(
                 fontFamily: '나눔손글씨',
                 fontSize: 25,
-                fontWeight: FontWeight.bold, // 원하는 폰트 설정
+                fontWeight: FontWeight.bold,
               )
             ),
                   Container(

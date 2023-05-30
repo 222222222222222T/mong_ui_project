@@ -106,6 +106,7 @@ class _calendarState extends State<calendar> {
               Navigator.push(context,
               MaterialPageRoute(builder: (context)=>fiveScreen(_selectedDay?.day.toString() as Object,_selectedDay?.month.toString() as Object)));
             },
+
             child: Image(
               width: 400,
               image: AssetImage("imageFile/init.PNG"),
@@ -167,17 +168,308 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
                 style: TextStyle(fontSize: 16,color: Color(0xffDBD09E)),
               ),
               // Image.asset("imageFile/d.png")
-              (date=='2' && month=='5')?
-              Container(
-                  child: Image.asset("imageFile/d.png",width: 30,height: 30,),
-                  // padding: EdgeInsets.only(top: 1, bottom: 1),
-                  width: MediaQuery.of(context).size.width,
-                  height:32,
-                  decoration: BoxDecoration(
-                      shape:BoxShape.circle,
-                      color: Color(0xffE7E3D1)
-                  )
-              ):
+              (date=='1' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog1.jpg"),
+                ),
+              )
+                  :
+
+              (date=='2' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog2.png"),
+                ),
+              )
+                  :
+
+              (date=='3' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog3.png"),
+                ),
+              )
+                  :
+
+              (date=='4' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog4.png"),
+                ),
+              )
+                  :
+
+              (date=='9' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog5.png"),
+                ),
+              )
+                  :
+
+              (date=='10' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog6.png"),
+                ),
+              )
+                  :
+
+              (date=='11' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog7.png"),
+                ),
+              )
+                  :
+
+
+              (date=='14' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog8.png"),
+                ),
+              )
+                  :
+              (date=='15' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog9.png"),
+                ),
+              )
+                  :
+              (date == '16' && month == '5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog10.png"),
+                ),
+              )
+                  :
+              (date=='17' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog11.png"),
+                ),
+              )
+                  :
+              (date=='18' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog12.png"),
+                ),
+              )
+                  :
+              (date=='19' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog13.png"),
+                ),
+              )
+                  :
+              (date=='20' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog14.png"),
+                ),
+              )
+                  :
+              (date=='24' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog15.png"),
+                ),
+              )
+                  :
+              (date=='25' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog6.png"),
+                ),
+              )
+                  :
+              (date=='26' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog7.png"),
+                ),
+              )
+                  :
+              (date=='27' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog8.png"),
+                ),
+              )
+                  :
+              (date=='28' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog3.png"),
+                ),
+              )
+                  :
+              (date=='29' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog11.png"),
+                ),
+              )
+                  :
+              (date=='31' && month=='5')
+                  ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: 35,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xffE7E3D1),
+                ),
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage("imageFile/dog13.png"),
+                ),
+              )
+                  :
               Container(
                 // padding: EdgeInsets.only(top: 1, bottom: 1),
                 width: MediaQuery.of(context).size.width,
@@ -185,29 +477,6 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
                 decoration: BoxDecoration(
                   shape:BoxShape.circle,
                   color: Color(0xffE7E3D1),
-                ),
-              )
-            ]
-        )
-    );
-  }
-  else if(type==2){
-    return Container(
-        width: 373,
-        height: 390,
-        padding: EdgeInsets.all(0),
-        child:Column(
-            children:[
-              Text(
-                date,
-                style: TextStyle(fontSize: 16,color: Colors.blueAccent),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height:32,
-                decoration: BoxDecoration(
-                  shape:BoxShape.circle,
-                  color: Colors.blueAccent,
                 ),
               )
             ]
@@ -223,14 +492,14 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
             children:[
               Text(
                 date,
-                style: TextStyle(fontSize: 16,color: Colors.black),
+                style: TextStyle(fontSize: 16,color: Color(0xffE7E3D1),),
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
                 height:32,
                 decoration: BoxDecoration(
                   shape:BoxShape.circle,
-                  color: Colors.black,
+                  color: Color(0xffE7E3D1),
                 ),
               )
             ]
@@ -238,6 +507,8 @@ Widget CalendarCellBuilder(BuildContext context, DateTime dateTime, _, int type)
     );
   }
 }
+
+
 class Arguments {
   final String dating;
   Arguments(this.dating);
@@ -250,3 +521,4 @@ class sb{
     child: Container(color: Colors.blue,),
   );
 }
+
