@@ -2,6 +2,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mong_ui/twoScreen.dart';
+import 'package:mong_ui/two_twoScreen.dart';
 import 'fourScreen.dart';
 import 'twoScreen.dart';
 import 'package:image_picker/image_picker.dart';
@@ -152,7 +153,7 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => fourScreen()));
+                      MaterialPageRoute(builder: (context) => two_twoScreen()));
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all<Size>(Size(150, 60)),

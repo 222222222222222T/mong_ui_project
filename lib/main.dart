@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mong_ui/two_twoScreen.dart';
 import 'fiveScreen.dart';
 import 'oneScreen.dart';
 import 'twoScreen.dart';
 import 'threeScreen.dart';
+import 'two_twoScreen.dart';
 import 'fourScreen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,6 +41,7 @@ class _myAppState extends State<myApp> {
       routes: {
         '/':(context)=>oneScreen(),
         '/twoScreen':(context)=>twoScreen(),
+        '/two_twoScreen':(context)=>two_twoScreen(),
         '/threeScreen':(context)=>threeScreen(),
         '/fourScreen':(context)=>fourScreen(),
         // '/fiveScreen':(content)=>fiveScreen(),
