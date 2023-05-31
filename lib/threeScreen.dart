@@ -8,8 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:get/get.dart';
 
 
 
@@ -226,12 +224,11 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
-        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
         Reference referenceRoot = FirebaseStorage.instance.ref();
         Reference referenceDirImages = referenceRoot.child('images');
 
-        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+        Reference referenceImageToUpload = referenceDirImages.child('profile');
 
         try {
           referenceImageToUpload.putFile(File(pickedFile!.path));
@@ -253,12 +250,11 @@ class _PhotoInfoScreenState extends State<PhotoInfoScreen> {
     if (pickedFile != null) {
       setState(() {
         _pickedFile = pickedFile;
-        String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
 
         Reference referenceRoot = FirebaseStorage.instance.ref();
         Reference referenceDirImages = referenceRoot.child('images');
 
-        Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+        Reference referenceImageToUpload = referenceDirImages.child('profile');
 
         try {
           referenceImageToUpload.putFile(File(pickedFile!.path));
