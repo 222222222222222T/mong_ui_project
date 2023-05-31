@@ -133,7 +133,7 @@ class _calendarState extends State<calendar> {
               height: 75,
               ),
               TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>sixScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>sixScreen(_selectedDay?.day.toString() as Object,_selectedDay?.month.toString() as Object)));
               }, child:Image.asset(
                   "imageFile/tong.PNG",
                 width: 75,

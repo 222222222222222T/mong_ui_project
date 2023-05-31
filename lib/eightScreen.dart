@@ -1,9 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'fourScreen.dart';
 import 'sevenScreen.dart';
 import 'sixScreen.dart';
-class eightScreen extends StatelessWidget {
-  const eightScreen({Key? key}) : super(key: key);
+class eightScreen extends StatefulWidget {
+  final Object month;
+  final Object day;
+  const eightScreen(this.day,this.month);
+
+  @override
+  State<eightScreen> createState() => _eightScreenState();
+}
+
+class _eightScreenState extends State<eightScreen> {
+  int a=0;
+  int b=0;
+  int c=0;
+  int d=0;
+  int e=0;
+  int f=0;
+  bool check = false;
+  late List<_ChartData> data;
+  late TooltipBehavior _tooltip;
+  @override
+  void initState(){
+    data=[_ChartData(a, "happy"),
+      _ChartData(b, "funny"),
+      _ChartData(c, "refreshing"),
+      _ChartData(d, "annoying"),
+      _ChartData(e, "tired"),
+      _ChartData(f, "sad"),
+    ];
+    _tooltip = TooltipBehavior(enable: true);
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +44,12 @@ class eightScreen extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
             Container(
               padding: EdgeInsets.fromLTRB(40, 20, 0, 0),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                    '<   2023 . 5   >',
+                    '<   2023 . ${widget.month} . ${widget.day}   >',
                     style: TextStyle(
                       fontFamily: '나눔손글씨',
                       fontSize: 25,
@@ -32,6 +62,35 @@ class eightScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Checkbox(value: check, onChanged:(value){
+                    setState(() {
+                      Future<int> a1 =Accumulatorget(widget.month, "happy");
+                      Future<int> a2 =Accumulatorget(widget.month, "funny");
+                      Future<int> a3 =Accumulatorget(widget.month, "refreshing");
+                      Future<int> a4 =Accumulatorget(widget.month, "annoying");
+                      Future<int> a5 =Accumulatorget(widget.month, "tired");
+                      Future<int> a6 =Accumulatorget(widget.month, "sad");
+                      a1.then((value) => {
+                        print("a바뀜"),
+                        print(value),
+                      });
+                      a2.then((value) => {b=value});
+                      a3.then((value) => {c=value});
+                      a4.then((value) => {d=value});
+                      a5.then((value) => {e=value});
+                      a6.then((value) => {f=value});
+                      check=value!;
+                      data=[_ChartData(a, "happy"),
+                        _ChartData(b, "funny"),
+                        _ChartData(c, "refreshing"),
+                        _ChartData(d, "annoying"),
+                        _ChartData(e, "tired"),
+                        _ChartData(f, "sad"),
+                      ];
+
+                    });
+                  }),
+
                   Text('이번 달 몽실이의 기분은?' ,
                       style: TextStyle(
                         fontFamily: '나눔손글씨',
@@ -43,7 +102,7 @@ class eightScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => sixScreen()),
+                          MaterialPageRoute(builder: (context) => sixScreen(widget.day,widget.month)),
                         );
                       },
                       child:
@@ -63,102 +122,32 @@ class eightScreen extends StatelessWidget {
                               fontFamily: '나눔손글씨',
                               fontWeight: FontWeight.bold),
                         ),
-
                       )
                   )
-
                 ],
               ),
             ), flex: 7),
             Flexible(child: Container(
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                            margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFCF5B6),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            width: 20, height: 160
-                        ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(60, 40, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFCF5B6),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            width: 20, height: 120
-                        ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(60, 80, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFCF5B6),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            width: 20, height: 80
-                        ),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(60, 100, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFCF5B6),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            width: 20, height: 60
-                        ),
-                      ],
-                    ),
                     Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xffC2BDAB),
-                        ),
-                        width: 350, height: 1
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                            margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                            child: Text('# 기뻐요',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: '나눔손글씨',
-                                  fontWeight: FontWeight.bold),
-                            )),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                            child: Text('# 설레요',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: '나눔손글씨',
-                                  fontWeight: FontWeight.bold),
-                            )),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                            child: Text('# 슬퍼요',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: '나눔손글씨',
-                                  fontWeight: FontWeight.bold),
-                            )),
-                        Container(
-                            margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                            child: Text('# 힘들어요',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: '나눔손글씨',
-                                  fontWeight: FontWeight.bold),
-                            )),
-                        /* Container(
-                            margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                            child: Text('# ㅇㅇ',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: '나눔손글씨',
-                                  fontWeight: FontWeight.bold),
-                            )), */
-
-                      ],
+                      height:180,
+                      width: 380,
+                      child:Center(
+                          child:SfCartesianChart(
+                              primaryXAxis: CategoryAxis(),
+                              primaryYAxis: NumericAxis(minimum: 0, maximum: 20, interval: 4),
+                              tooltipBehavior: _tooltip,
+                              series: <ChartSeries<_ChartData, String>>[
+                                ColumnSeries<_ChartData, String>(
+                                    dataSource: data,
+                                    xValueMapper: (_ChartData data, _) => data.stat,
+                                    yValueMapper: (_ChartData data, _) => data.Acount,
+                                    name: 'Gold',
+                                    color: Color.fromRGBO(8, 142, 255, 1))
+                              ])
+                      )
+                      ,
                     )
                   ],
                 )
@@ -315,4 +304,11 @@ class eightScreen extends StatelessWidget {
         ),
       ),
     );
-  }}
+}
+}
+
+class _ChartData {
+  int Acount;
+  String stat;
+  _ChartData(this.Acount,this.stat);
+}

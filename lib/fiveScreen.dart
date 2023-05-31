@@ -49,67 +49,6 @@ class _fiveScreenState extends State<fiveScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Future<int> count1 = get(widget.month, widget.day, "happy");
-    // Future<int> count2 = get(widget.month, widget.day, "funny");
-    // Future<int> count3 = get(widget.month, widget.day, "refreshing");
-    // Future<int> count4 = get(widget.month, widget.day, "annoying");
-    // Future<int> count5 = get(widget.month, widget.day, "tired");
-    // Future<int> count6 = get(widget.month, widget.day, "sad");
-    // Future<int> count7 = get(widget.month, widget.day, "walk");
-    // Future<int> count8 = get(widget.month, widget.day, "shopping");
-    // Future<int> count9 = get(widget.month, widget.day, "cutting");
-    // Future<int> count10 = get(widget.month, widget.day, "meeting");
-    // Future<int> count11 = get(widget.month, widget.day, "trip");
-    // Future<int> count12 = get(widget.month, widget.day, "shower");
-    // count1.then((c1) => {
-    //       if (c1 == 1) {print("1바꿈"), _isChecked1 = true}
-    //     });
-    // count2.then((c2) => {
-    //       if (c2 == 1) {print("2바꿈"), _isChecked2 = true}
-    //     });
-    // count3.then((c3) => {
-    //       if (c3 == 1) {print("3바꿈"), _isChecked3 = true}
-    //     });
-    // count4.then((c4) => {
-    //       if (c4 == 1) {print("4바꿈"), _isChecked4 = true}
-    //     });
-    // count5.then((c5) => {
-    //       if (c5 == 1) {print("5바꿈"), _isChecked5 = true}
-    //     });
-    // count6.then((c6) => {
-    //       if (c6 == 1) {print("6바꿈"), _isChecked6 = true}
-    //     });
-    // count7.then((c7) => {
-    //       if (c7 == 1) {print("7바꿈"), _isChecked7 = true}
-    //     });
-    // count8.then((c8) => {
-    //       if (c8 == 1) {print("8바꿈"), _isChecked8 = true}
-    //     });
-    // count9.then((c9) => {
-    //       if (c9 == 1) {print("9바꿈"), _isChecked9 = true}
-    //     });
-    // count10.then((c10) => {
-    //       if (c10 == 1) {print("10바꿈"), _isChecked10 = true}
-    //     });
-    // count11.then((c11) => {
-    //       if (c11 == 1) {print("11바꿈"), _isChecked11 = true}
-    //     });
-    // count12.then((c12) => {
-    //       if (c12 == 1) {print("12바꿈"), _isChecked12 = true}
-    //     });
-    print(_isChecked1);
-    print(_isChecked2);
-    print(_isChecked3);
-    print(_isChecked4);
-    print(_isChecked5);
-    print(_isChecked6);
-    print(_isChecked7);
-    print(_isChecked8);
-    print(_isChecked9);
-    print(_isChecked10);
-    print(_isChecked11);
-    print(_isChecked12);
-
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(),
@@ -377,19 +316,25 @@ class _fiveScreenState extends State<fiveScreen> {
                                     count.then((v) => {
                                           if (v == -1)
                                             {
-                                              createData(widget.month,
-                                                  widget.day, "walk"),
+                                              createData(widget.month,widget.day, "walk"),
                                             },
-                                          statUpdate(widget.month, widget.day,
-                                              "walk", v + 1)
+                                          statUpdate(widget.month, widget.day,"walk", v + 1),
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "walk");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"walk",av+1)
+                                    });
+
                                   } else {
-                                    Future<int> count =
-                                        get(widget.month, widget.day, "walk");
+                                    Future<int> count =get(widget.month, widget.day, "walk");
                                     count.then((v) => {
-                                          statUpdate(widget.month, widget.day,
-                                              "walk", v - 1)
-                                        });
+                                      statUpdate(widget.month, widget.day, "walk", v - 1),
+                                    });
+                                    Future<int> Acount = Accumulatorget(widget.month, "walk");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"walk",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -420,6 +365,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "shopping", v + 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "shopping");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"shopping",av+1)
+                                    });
+
                                   } else {
                                     Future<int> count = get(
                                         widget.month, widget.day, "shopping");
@@ -427,6 +377,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "shopping", v - 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "shopping");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"shopping",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -462,6 +417,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "cutting", v + 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "cutting");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"cutting",av+1)
+                                    });
+
                                   } else {
                                     Future<int> count = get(
                                         widget.month, widget.day, "cutting");
@@ -469,6 +429,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "cutting", v - 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "cutting");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"cutting",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -499,6 +464,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "meeting", v + 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "meeting");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"meeting",av+1)
+                                    });
+
                                   } else {
                                     Future<int> count = get(
                                         widget.month, widget.day, "meeting");
@@ -506,6 +476,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "meeting", v - 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "meeting");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"meeting",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -541,6 +516,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "trip", v + 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "trip");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"trip",av+1)
+                                    });
+
                                   } else {
                                     Future<int> count =
                                         get(widget.month, widget.day, "trip");
@@ -548,6 +528,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "trip", v - 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "trip");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"trip",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -578,6 +563,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "shower", v + 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "shower");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"shower",av+1)
+                                    });
+
                                   } else {
                                     Future<int> count =
                                         get(widget.month, widget.day, "shower");
@@ -585,6 +575,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                           statUpdate(widget.month, widget.day,
                                               "shower", v - 1)
                                         });
+                                    Future<int> Acount = Accumulatorget(widget.month, "shower");
+                                    Acount.then((av)=>{
+                                      statAccumulatorUpdate(widget.month,"shower",av-1)
+                                    });
+
                                   }
                                 },
                               ),
@@ -650,6 +645,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "happy", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "happy");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"happy",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "happy");
@@ -657,6 +657,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "happy", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "happy");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"happy",av-1)
+                                });
+
                               }
                             },
                           ),
@@ -687,6 +692,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "funny", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "funny");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"funny",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "funny");
@@ -694,6 +704,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "funny", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "funny");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"funny",av-1)
+                                });
+
                               }
                             },
                           ),
@@ -729,6 +744,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "refreshing", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "refreshing");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"refreshing",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "refreshing");
@@ -736,6 +756,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "refreshing", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "refreshing");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"refreshing",av-1)
+                                });
+
                               }
                             },
                           ),
@@ -766,6 +791,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "annoying", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "annoying");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"annoying",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "annoying");
@@ -773,6 +803,10 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "annoying", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "annoying");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"annoying",av-1)
+                                });
                               }
                             },
                           ),
@@ -808,6 +842,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "tired", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "tired");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"tired",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "tired");
@@ -815,6 +854,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "tired", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "tired");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"tired",av-1)
+                                });
+
                               }
                             },
                           ),
@@ -845,6 +889,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "sad", v + 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "sad");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"sad",av+1)
+                                });
+
                               } else {
                                 Future<int> count =
                                     get(widget.month, widget.day, "sad");
@@ -852,6 +901,11 @@ class _fiveScreenState extends State<fiveScreen> {
                                       statUpdate(widget.month, widget.day,
                                           "sad", v - 1)
                                     });
+                                Future<int> Acount = Accumulatorget(widget.month, "sad");
+                                Acount.then((av)=>{
+                                  statAccumulatorUpdate(widget.month,"sad",av-1)
+                                });
+
                               }
                             },
                           ),
@@ -1009,6 +1063,12 @@ void statUpdate(Object Month, Object dating, String stat, int count) {
   });
 }
 
+void statAccumulatorUpdate(Object Month, String stat, int count) {
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/accumulator");
+  ref.update({
+    "$stat": count,
+  });
+}
 
 Future<void> createData(Object Month, Object dating, String stat) async {
   DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/$dating");
@@ -1032,6 +1092,29 @@ Future<void> createData(Object Month, Object dating, String stat) async {
   print("stat후");
 }
 
+Future<void> createAccumlatorData(Object Month, String stat) async {
+  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/accumulator");
+  await ref.set({
+    "happy": 0,
+    "funny": 0,
+    "refreshing": 0,
+    "annoying": 0,
+    "sad": 0,
+    "tired": 0,
+    "walk": 0,
+    "shopping": 0,
+    "cutting": 0,
+    "meeting": 0,
+    "trip": 0,
+    "shower": 0
+  });
+  await ref.update({
+    "$stat": 1,
+  });
+  print("stat후");
+}
+
+
 Future<int> get(Object Month, Object dating, String stat) async {
   final ref = FirebaseDatabase.instance.ref();
   final snapshot = await ref.child('users/$Month/$dating/$stat').get();
@@ -1041,6 +1124,35 @@ Future<int> get(Object Month, Object dating, String stat) async {
     return -1;
   }
 }
+
+Future<int> Accumulatorget(Object Month, String stat) async {
+  final ref = FirebaseDatabase.instance.ref();
+  final snapshot = await ref.child('users/$Month/accumulator/$stat').get();
+  if (snapshot.exists) {
+    return snapshot.value as int;
+  } else {
+    return -1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 내가 한 이상한 코드
 void diaryUpdate(Object month, Object date, String stat, String diaryText) {
