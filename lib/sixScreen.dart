@@ -4,7 +4,6 @@ import 'fourScreen.dart';
 import 'sevenScreen.dart';
 import 'eightScreen.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-// sfs
 class sixScreen extends StatefulWidget {
   final Object month;
   final Object day;
@@ -132,48 +131,6 @@ class _sixScreenState extends State<sixScreen> {
             Flexible(child: Container(
                 child: Column(
                   children: [
-                    // Row(
-                    //   children: [
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                    //         decoration: BoxDecoration(
-                    //           color: Color(0xffFCF5B6),
-                    //           borderRadius: BorderRadius.circular(7),
-                    //         ),
-                    //         width: 20, height: 160
-                    //     ),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(60, 40, 0, 0),
-                    //         decoration: BoxDecoration(
-                    //           color: Color(0xffFCF5B6),
-                    //           borderRadius: BorderRadius.circular(7),
-                    //         ),
-                    //         width: 20, height: 120
-                    //     ),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(60, 80, 0, 0),
-                    //         decoration: BoxDecoration(
-                    //           color: Color(0xffFCF5B6),
-                    //           borderRadius: BorderRadius.circular(7),
-                    //         ),
-                    //         width: 20, height: 80
-                    //     ),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(60, 100, 0, 0),
-                    //         decoration: BoxDecoration(
-                    //           color: Color(0xffFCF5B6),
-                    //           borderRadius: BorderRadius.circular(7),
-                    //         ),
-                    //         width: 20, height: 60
-                    //     ),
-                    //   ],
-                    // ),
-                    // Container(
-                    //     decoration: BoxDecoration(
-                    //       color: Color(0xffC2BDAB),
-                    //     ),
-                    //     width: 350, height: 1
-                    // ),
                     Container(
                       height:180,
                       width: 380,
@@ -194,58 +151,6 @@ class _sixScreenState extends State<sixScreen> {
                       )
                       ,
                     )
-
-
-                    // Row(
-                    //   children: [
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                    //         child: Text('# 산책',
-                    //           style: TextStyle(
-                    //               fontSize: 15,
-                    //               fontFamily: '나눔손글씨',
-                    //               fontWeight: FontWeight.bold),
-                    //         )),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                    //         child: Text('# 쇼핑',
-                    //           style: TextStyle(
-                    //               fontSize: 16,
-                    //               fontFamily: '나눔손글씨',
-                    //               fontWeight: FontWeight.bold),
-                    //         )),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                    //         child: Text('# 여행',
-                    //           style: TextStyle(
-                    //               fontSize: 15,
-                    //               fontFamily: '나눔손글씨',
-                    //               fontWeight: FontWeight.bold),
-                    //         )),
-                    //     Container(
-                    //         margin: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                    //         child: Text('# 병원',
-                    //           style: TextStyle(
-                    //               fontSize: 15,
-                    //               fontFamily: '나눔손글씨',
-                    //               fontWeight: FontWeight.bold),
-                    //         )),
-                    //     /* Container(
-                    //         margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                    //         child: Text('# ㅇㅇ',
-                    //           style: TextStyle(
-                    //               fontSize: 15,
-                    //               fontFamily: '나눔손글씨',
-                    //               fontWeight: FontWeight.bold),
-                    //         )), */
-                    //
-                    //   ],
-                    // )
-
-
-
-
-
                   ],
                 )
             ), flex: 4),
@@ -269,20 +174,6 @@ class _sixScreenState extends State<sixScreen> {
                                 fontFamily: '나눔손글씨',
                                 fontWeight: FontWeight.bold),
                           ),
-
-                          /*Container(
-
-                            padding: EdgeInsets.fromLTRB(30, 7, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFCF5B6),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            width: 130,
-                            height: 30,
-                            child: Text('I do'),
-                          )
-
-                           */
                         ],
                       ),
                     ),
@@ -417,7 +308,7 @@ class _ChartData {
 // }
 Future<int> Accumulatorget(Object Month, String stat) async {
   final ref = FirebaseDatabase.instance.ref();
-  final snapshot = await ref.child('users/$Month/accumulator/$stat').get();
+  final snapshot = await ref.child('몽실/$Month/accumulator/$stat').get();
   if (snapshot.exists) {
     return snapshot.value as int;
   } else {

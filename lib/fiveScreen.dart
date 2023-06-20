@@ -339,7 +339,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                 },
                               ),
                               Text(
-                                '산책갔어요',
+                                '바깥 구경 최고!',
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
@@ -386,7 +386,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                 },
                               ),
                               Text(
-                                '쇼핑했어요',
+                                '쇼핑 두손 가득',
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
@@ -438,7 +438,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                 },
                               ),
                               Text(
-                                '미용했어요',
+                                '예쁘게 미용했어요',
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
@@ -485,7 +485,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                 },
                               ),
                               Text(
-                                '친구를 만났어요',
+                                '친구 만났어요',
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
@@ -584,7 +584,7 @@ class _fiveScreenState extends State<fiveScreen> {
                                 },
                               ),
                               Text(
-                                '깨끗해졌어요',
+                                '씻김 당했어요',
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontFamily: '나눔손글씨',
@@ -666,7 +666,7 @@ class _fiveScreenState extends State<fiveScreen> {
                             },
                           ),
                           Text(
-                            '행복했어요',
+                            '행복한 하루!!',
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: '나눔손글씨',
@@ -713,7 +713,7 @@ class _fiveScreenState extends State<fiveScreen> {
                             },
                           ),
                           Text(
-                            '즐거웠어요',
+                            '즐거운 데이트',
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: '나눔손글씨',
@@ -765,7 +765,7 @@ class _fiveScreenState extends State<fiveScreen> {
                             },
                           ),
                           Text(
-                            '상쾌했어요',
+                            '너무 상쾌해요',
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: '나눔손글씨',
@@ -811,7 +811,7 @@ class _fiveScreenState extends State<fiveScreen> {
                             },
                           ),
                           Text(
-                            '짜증났어요',
+                            '오늘 아팠어요',
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: '나눔손글씨',
@@ -863,7 +863,7 @@ class _fiveScreenState extends State<fiveScreen> {
                             },
                           ),
                           Text(
-                            '힘들어요',
+                            '여러모로 피곤했어요',
                             style: TextStyle(
                               fontSize: 24,
                               fontFamily: '나눔손글씨',
@@ -1055,21 +1055,21 @@ class _fiveScreenState extends State<fiveScreen> {
 }
 
 void statUpdate(Object Month, Object dating, String stat, int count) {
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/$dating");
+  DatabaseReference ref = FirebaseDatabase.instance.ref("몽실/$Month/$dating");
   ref.update({
     "$stat": count,
   });
 }
 
 void statAccumulatorUpdate(Object Month, String stat, int count) {
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/accumulator");
+  DatabaseReference ref = FirebaseDatabase.instance.ref("몽실/$Month/accumulator");
   ref.update({
     "$stat": count,
   });
 }
 
 Future<void> createData(Object Month, Object dating, String stat) async {
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/$dating");
+  DatabaseReference ref = FirebaseDatabase.instance.ref("몽실/$Month/$dating");
   await ref.set({
     "happy": 0,
     "funny": 0,
@@ -1091,7 +1091,7 @@ Future<void> createData(Object Month, Object dating, String stat) async {
 }
 
 Future<void> createAccumlatorData(Object Month, String stat) async {
-  DatabaseReference ref = FirebaseDatabase.instance.ref("users/$Month/accumulator");
+  DatabaseReference ref = FirebaseDatabase.instance.ref("몽실/$Month/accumulator");
   await ref.set({
     "happy": 0,
     "funny": 0,
@@ -1115,7 +1115,7 @@ Future<void> createAccumlatorData(Object Month, String stat) async {
 
 Future<int> get(Object Month, Object dating, String stat) async {
   final ref = FirebaseDatabase.instance.ref();
-  final snapshot = await ref.child('users/$Month/$dating/$stat').get();
+  final snapshot = await ref.child('몽실/$Month/$dating/$stat').get();
   if (snapshot.exists) {
     return snapshot.value as int;
   } else {
@@ -1125,7 +1125,7 @@ Future<int> get(Object Month, Object dating, String stat) async {
 
 Future<int> Accumulatorget(Object Month, String stat) async {
   final ref = FirebaseDatabase.instance.ref();
-  final snapshot = await ref.child('users/$Month/accumulator/$stat').get();
+  final snapshot = await ref.child('몽실/$Month/accumulator/$stat').get();
   if (snapshot.exists) {
     return snapshot.value as int;
   } else {

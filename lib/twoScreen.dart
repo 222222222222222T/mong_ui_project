@@ -16,7 +16,6 @@ class twoScreen extends StatelessWidget {
             onPressed: (){
               Navigator.pushNamed(context, '/fourScreen');
             },
-
               child:Container(
                 width: 110, // 가로 크기
                 height: 110, // 세로 크기
